@@ -1,0 +1,38 @@
+Add concentration ellipse around groups. R function stat_ellipse(). 
+Key arguments: ◦type: The type of ellipse. The default “t” assumes a multivariate t-distribution, 
+and “norm” assumes a multivariate normal distribution. “euclid” draws a circle with the radius equal to level, 
+representing the euclidean distance from the center.
+<p```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
