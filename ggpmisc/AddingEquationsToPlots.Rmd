@@ -1,6 +1,9 @@
-Add regression line, correlation coefficient and equantions of the fitted line. Key functions: ?stat_smooth() [ggplot2]
-?stat_cor() [ggpubr]
-?stat_poly_eq()[ggpmisc]
+Add regression line, correlation coefficient and equantions of the fitted line. 
+
+Key functions: 
+1. ?stat_smooth() [ggplot2]
+2. ?stat_cor() [ggpubr]
+3. ?stat_poly_eq()[ggpmisc]
 
 ```{r}
 formula <- y ~ x
