@@ -1,19 +1,24 @@
 
-Add concentration ellipse around groups. R function stat_ellipse(). Key arguments: ?type: The type of ellipse. The default ìtî assumes a multivariate t-distribution, and ìnormî assumes a multivariate normal distribution. ìeuclidî draws a circle with the radius equal to level, representing the euclidean distance from the center.
-?level: The confidence level at which to draw an ellipse (default is 0.95), or, if type=ìeuclidî, the radius of the circle to be drawn.
-
+Add concentration ellipse around groups. R function stat_ellipse(). Key arguments: ?type: The type of ellipse. The default ‚Äút‚Äù assumes a multivariate t-distribution, and ‚Äúnorm‚Äù assumes a multivariate normal distribution. ‚Äúeuclid‚Äù draws a circle with the radius equal to level, representing the euclidean distance from the center.
+?level: The confidence level at which to draw an ellipse (default is 0.95), or, if type=‚Äúeuclid‚Äù, the radius of the circle to be drawn.
+```{r}
 b + geom_point(aes(color = cyl, shape = cyl))+
   stat_ellipse(aes(color = cyl), type = "t")+
   scale_color_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
-
+```
 
 Instead of drawing the concentration ellipse, you can: i) plot a convex hull of a set of points; ii) add the mean points and the confidence ellipse of each group. Key R functions: stat_chull(), stat_conf_ellipse() and stat_mean() [in ggpubr]:
+```{r}
 # Convex hull of groups
 b + geom_point(aes(color = cyl, shape = cyl)) +
   stat_chull(aes(color = cyl, fill = cyl), 
              alpha = 0.1, geom = "polygon") +
   scale_color_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) 
+  
+```
+
+```{r}
 # Add mean points and confidence ellipses
 b + geom_point(aes(color = cyl, shape = cyl)) +
   stat_conf_ellipse(aes(color = cyl, fill = cyl), 
@@ -21,8 +26,9 @@ b + geom_point(aes(color = cyl, shape = cyl)) +
   stat_mean(aes(color = cyl, shape = cyl), size = 2) + 
   scale_color_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) 
-
-ïEasy alternative using ggpubr. See this article: Perfect Scatter Plots with Correlation and Marginal Histograms
+```
+‚Ä¢Easy alternative using ggpubr. See this article: Perfect Scatter Plots with Correlation and Marginal Histograms
+```{r}
 # Add group mean points and stars
 ggscatter(df, x = "wt", y = "mpg",
           color = "cyl", palette = "npg",
@@ -35,3 +41,4 @@ ggscatter(df, x = "wt", y = "mpg",
           shape = "cyl",
           ellipse = TRUE, ellipse.type = "convex",
           ggtheme = theme_minimal())
+```
