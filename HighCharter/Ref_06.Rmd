@@ -1,0 +1,112 @@
+
+
+## ``hc_annotations``
+Adding annotations to highcharts objects
+
+#### Description 
+
+Helper function to add annotations to highcharts library.
+Usage
+hc_annotations(hc, ...)
+hc_add_annotation(hc, ...)
+hc_add_annotations(hc, x)
+
+#### Arguments 
+
+hc
+...
+x
+A highchart htmlwidget object.
+ #### Arguments 
+ defined in http://www.highcharts.com/plugin-registry/single/
+17/Annotations.
+A list or a data.frame of annotations.hc_annotationsOptions
+
+The x elemens must have xValue and yValue elements
+hc_annotationsOptions Setting Annotations Options
+
+#### Description 
+
+Setting Annotations Options
+Usage
+hc_annotationsOptions(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Options defined in http://www.highcharts.com/plugin-registry/single/
+17/Annotations.
+hc_chart
+Adding chart options to highchart objects
+
+#### Description 
+
+Options regarding the chart area and plot area as well as general chart options.
+Usage
+hc_chart(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.40
+hc_colorAxis
+
+#### Examples
+```{r}
+data(citytemp)
+hc <- highchart() %>%
+hc_xAxis(categories = citytemp$month) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo) %>%
+hc_add_series(name = "London", data = citytemp$london)
+hc %>%
+hc_chart(type = "column",
+options3d = list(enabled = TRUE, beta = 15, alpha = 15))
+hc %>%
+hc_chart(borderColor = '#EBBA95',
+borderRadius = 10,
+borderWidth = 2,
+backgroundColor = list(
+linearGradient = c(0, 0, 500, 500),
+stops = list(
+list(0, 'rgb(255, 255, 255)'),
+list(1, 'rgb(200, 200, 255)')
+)))
+```
+
+## ``hc_colorAxis``
+Adding Color Axis options to highchart objects
+
+#### Description 
+
+Function to set the axis color to highcharts objects.
+Usage
+hc_colorAxis(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highmaps#colorAxis.
+Examples
+```{r}
+nyears <- 5
+df <- expand.grid(seq(12) - 1, seq(nyears) - 1)
+df$value <- abs(seq(nrow(df)) + 10 * rnorm(nrow(df))) + 10
+df$value <- round(df$value, 2)
+ds <- list_parse2(df)
+hc <- highchart() %>%
+hc_chart(type = "heatmap") %>%
+hc_title(text = "Simulated values by years and months") %>%
+hc_xAxis(categories = month.abb) %>%
+hc_yAxis(categories = 2016 - nyears + seq(nyears)) %>%
+hc_add_series(name = "value", data = ds)
+hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348")
+hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348",
+type = "logarithmic")
+```
+
+```{r}
+require("viridisLite")
+n <- 4
+stops <- data.frame(q = 0:n/n,
+c = substring(viridis(n + 1), 0, 7),
+stringsAsFactors = FALSE)
+stops <- list_parse2(stops)
+hc_colorAxis(hc, stops = stops, max = 75)
+```
