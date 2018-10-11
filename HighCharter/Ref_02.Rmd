@@ -1,0 +1,348 @@
+export_hc
+Function to export js file the configuration options
+
+#### Description 
+
+Function to export js file the configuration options
+Usage
+export_hc(hc, filename = NULL)
+ #### Arguments 
+
+hc A A highcarts object
+filename A string
+Examples
+fn <- "function(){
+console.log('Category: ' + this.category);
+alert('Category: ' + this.category);
+}"
+hc <- highcharts_demo() %>%
+hc_plotOptions(
+series = list(
+cursor = "pointer",
+point = list(
+events = list(
+click = JS(fn)
+)
+)
+)
+)10
+favorite_pies
+
+favorite_pies
+Marshall’s Favorite Pies
+
+#### Description 
+
+Data from How I met Your Mother: Marshall’s Favorite Pies
+Usage
+favorite_pies
+#### Format
+
+A data frame with 5 observations and 2 variables.
+#### Variables 
+
+* pie: Bar’s name.
+* percent: In percentage of tastinessfa_icon
+11
+fa_icon
+Helpers functions to get FontAwesome icons code
+
+#### Description 
+
+Helpers functions to get FontAwesome icons code
+Usage
+fa_icon(iconname = "circle")
+fa_icon_mark(iconname = "circle")
+ #### Arguments 
+
+iconname
+The icon’s name
+Examples
+fa_icon("car")
+fa_icon_mark("car")
+fa_icon_mark(iconname = c("car", "plane", "car"))
+
+
+
+
+get_data_from_map
+Auxilar function to get the data inside the map data The urls are listed
+in https://code.highcharts.com/mapdata/.
+
+#### Description 
+
+Auxilar function to get the data inside the map data The urls are listed in https://code.highcharts.
+com/mapdata/.
+Usage
+get_data_from_map(mapdata)
+ #### Arguments 
+
+mapdata
+A list obtained from download_map_data.
+See Also
+download_map_data
+Examples
+dta <- download_map_data("https://code.highcharts.com/mapdata/countries/us/us-ca-all.js")
+get_data_from_map(dta)
+get_hc_series_from_df Auxiliar function to get series and options from tidy frame for
+hchart.data.frame
+
+#### Description 
+
+This function is used in hchart.data.frame and hc_add_series_df
+Usage
+get_hc_series_from_df(data, type = NULL, ...)
+ #### Arguments 
+
+data A data.frame object.
+type The type of chart. Possible values are line, scatter, point, column.
+... Aesthetic mappings as x y group color low high.globaltemp
+13
+Examples
+get_hc_series_from_df(iris, type = "point", x = Sepal.Width)
+globaltemp
+globaltemp
+
+#### Description 
+
+Temperature information by years.
+Usage
+globaltemp
+#### Format
+
+A data frame with 1992 observations and 4 variables.
+#### Variables 
+
+* date: Date.
+* lower: Minimum temperature.
+* median: Median temperature.
+* upper: Maximun temperature.
+Source
+http://www.climate-lab-book.ac.uk/2016/spiralling-global-temperatures/
+hcaes
+Define aesthetic mappings. Similar in spirit to ggplot2::aes
+
+#### Description 
+
+Define aesthetic mappings. Similar in spirit to ggplot2::aes
+Usage
+hcaes(x, y, ...)14
+hcboxplot
+ #### Arguments 
+
+x, y, ...
+List of name value pairs giving aesthetics to map to variables. The names for
+x and y aesthetics are typically omitted because they are so common; all other
+aesthetics must be named.
+Examples
+hcaes(x = xval, color = colorvar, group = grvar)
+hcbar
+Shorcut to make a bar chart
+
+#### Description 
+
+Shorcut to make a bar chart
+Usage
+hcbar(x, ...)
+ #### Arguments 
+
+x A character or factor vector.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hcboxplot
+Shortcut to make a boxplot
+
+#### Description 
+
+Shortcut to make a boxplot
+Usage
+hcboxplot(x = NULL, var = NULL, var2 = NULL, outliers = TRUE, ...)
+ #### Arguments 
+
+x A numeric vector.
+var A string vector same length of x.
+var2 A string vector same length of x.
+outliers A boolean value to show or not the outliers.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).hcdensity
+15
+Examples
+hcboxplot(x = iris$Sepal.Length, var = iris$Species, color = "red")
+hcdensity
+Shorcut to make density charts
+
+#### Description 
+
+Shorcut to make density charts
+Usage
+hcdensity(x, ...)
+ #### Arguments 
+
+x A numeric vector or a density object.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hchart
+Create a highchart object from a particular data type
+
+#### Description 
+
+hchart uses highchart to draw a particular plot for an object of a particular class in a single
+command. This defines the S3 generic that other classes and packages can extend.
+Usage
+hchart(object, ...)
+ #### Arguments 
+
+object A R object.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#
+series).
+Details
+Run methods(hchart) to see what objects are supported.16
+hchart.survfit
+hchart.survfit
+Plot survival curves using Highcharts
+
+#### Description 
+
+Plot survival curves using Highcharts
+Usage
+## S3 method for class 'survfit'
+hchart(object, ..., fun = NULL, markTimes = TRUE,
+symbol = "plus", markerColor = "black", ranges = FALSE,
+rangesOpacity = 0.3)
+ #### Arguments 
+
+object A survfit object as returned from the survfit function
+... Extra parameters to pass to hc_add_series function
+fun Name of function or function used to transform the survival curve: log will
+put y axis on log scale, event plots cumulative events (f(y) = 1-y), cumhaz
+plots the cumulative hazard function (f(y) = -log(y)), and cloglog creates a
+complimentary log-log survival plot (f(y) = log(-log(y)) along with log scale for
+the x-axis.
+* ``markTimes``: markTimes Label curves marked at each censoring time? TRUE by default
+symbol Symbol to use as marker (plus sign by default)
+markerColor Color of the marker ("black" by default); use NULL to use the respective color
+of each series
+ranges Plot interval ranges? FALSE by default
+rangesOpacity Opacity of the interval ranges (0.3 by default)
+Value
+Highcharts object to plot survival curves
+Examples
+# Plot Kaplan-Meier curves
+require("survival")
+leukemia.surv <- survfit(Surv(time, status) ~ x, data = aml)
+hchart(leukemia.surv)
+# Plot the cumulative hazard function
+lsurv2 <- survfit(Surv(time, status) ~ x, aml, type='fleming')
+hchart(lsurv2, fun="cumhaz")hchist
+17
+# Plot the fit of a Cox proportional hazards regression model
+fit <- coxph(Surv(futime, fustat) ~ age, data = ovarian)
+ovarian.surv <- survfit(fit, newdata=data.frame(age=60))
+hchart(ovarian.surv, ranges = TRUE)
+hchist
+Shorcut to make an histogram
+
+#### Description 
+
+Shorcut to make an histogram
+Usage
+hchist(x, ...)
+ #### Arguments 
+
+x A numeric vector.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hciconarray
+Shorcut to make icon arrays charts
+
+#### Description 
+
+Shorcut to make icon arrays charts
+Usage
+hciconarray(labels, counts, rows = NULL, icons = NULL, size = 4, ...)
+ #### Arguments 
+
+labels A character vector
+counts A integer vector
+rows A integer to set
+icons A character vector same length (o length 1) as labels
+size Font size
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).18
+hcmap
+Examples
+hciconarray(c("nice", "good"), c(10, 20))
+hciconarray(c("nice", "good"), c(10, 20), size = 10)
+hciconarray(c("nice", "good"), c(100, 200), icons = "child")
+hciconarray(c("car", "truck", "plane"), c(75, 30, 20), icons = c("car", "truck", "plane")) %>%
+hc_add_theme(
+hc_theme_merge(
+hc_theme_flatdark(),
+hc_theme_null(chart = list(backgroundColor = "#34495e"))
+)
+)
+hcmap
+Shorcut for create map Shorcut for create map from https://code.
+highcharts.com/mapdata/ collection.
+
+#### Description 
+
+Shorcut for create map Shorcut for create map from https://code.highcharts.com/mapdata/
+collection.
+Usage
+hcmap(map = "custom/world",
+download_map_data = getOption("highcharter.download_map_data"),
+data = NULL, value = NULL, joinBy = NULL, ...)
+ #### Arguments 
+
+map
+String indicating what map to chart.
+download_map_data
+A logical value whether to download (add as a depedeny) the map. Default
+FALSE.
+data Optional data to make a choropleth, in case of use the joinBy and value are
+needed.
+value A string value with the name of the column to chart.
+joinBy What property to join the map and df. the map.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).hcpie
+19
+Examples
+require(dplyr)
+hcmap(nullColor = "#DADADA")
+hcmap(nullColor = "#DADADA", download_map_data = TRUE)
+data("USArrests", package = "datasets")
+USArrests <- mutate(USArrests, "woe-name" = rownames(USArrests))
+hcmap(map = "countries/us/us-all", data = USArrests,
+joinBy = "woe-name", value = "UrbanPop", name = "Urban Population")
+hcmap(map = "countries/us/us-all", data = USArrests,
+joinBy = "woe-name", value = "UrbanPop", name = "Urban Population",
+download_map_data = TRUE)
+hcpie
+Shorcut to make a pie chart
+
+#### Description 
+
+Shorcut to make a pie chart
+Usage
+hcpie(x, ...)
+ #### Arguments 
+
+x A character o factor vector.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hcspark
+Shorcut to make spkarlines
+
+#### Description 
+
+Shorcut to make spkarlines
+Usage
+hcspark(x = NULL, type = NULL, ...)20
+hctreemap
+ #### Arguments 
+
+x A numeric vector.
+type Type sparkline: line, bar, etc.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+Examples
+set.seed(123)
+x <- cumsum(rnorm(10))
+hcspark(x)
+hcspark(x, "column")
+hcspark(c(1, 4, 5), "pie")
+hcspark(x, type = "area")
