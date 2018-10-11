@@ -1,0 +1,146 @@
+hctreemap
+Shorcut for create treemaps
+
+#### Description 
+
+This function helps to create higcharts treemaps from treemap objects from the package treemap.
+Usage
+hctreemap(tm, ...)
+ #### Arguments 
+
+tm A treemap object from the treemap package.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Examples
+## Not run:
+library("treemap")
+library("viridis")
+data(GNI2014)
+head(GNI2014)
+tm <- treemap(GNI2014, index = c("continent", "iso3"),
+vSize = "population", vColor = "GNI",
+type = "comp", palette = rev(viridis(6)),hcts
+21
+draw = FALSE)
+hctreemap(tm, allowDrillToNode = TRUE, layoutAlgorithm = "squarified") %>%
+hc_title(text = "Gross National Income World Data") %>%
+hc_tooltip(pointFormat = "<b>{point.name}</b>:<br>
+Pop: {point.value:,.0f}<br>
+GNI: {point.valuecolor:,.0f}")
+## End(Not run)
+hcts
+Shorcut to make time series or line charts
+
+#### Description 
+
+Shorcut to make time series or line charts
+Usage
+hcts(x, ...)
+ #### Arguments 
+
+x A numeric vector or a time series object.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hc_add_series
+Adding and removing series from highchart objects
+
+#### Description 
+
+Adding and removing series from highchart objects
+Usage
+hc_add_series(hc, data = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data An R object like numeric, list, ts, xts, etc.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.22
+hc_add_series.data.frame
+Examples
+highchart() %>%
+hc_add_series(data = abs(rnorm(5)), type = "column") %>%
+hc_add_series(data = purrr::map(0:4, function(x) list(x, x)), type = "scatter", color = "blue")
+hc_add_series.character
+hc_add_series for character and factor objects
+
+#### Description 
+
+hc_add_series for character and factor objects
+Usage
+## S3 method for class 'character'
+hc_add_series(hc, data, ...)
+## S3 method for class 'factor'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A character or factor object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.data.frame
+hc_add_series for data frames objects
+
+#### Description 
+
+hc_add_series for data frames objects
+Usage
+## S3 method for class 'data.frame'
+hc_add_series(hc, data, type = NULL, mapping = hcaes(),
+...)hc_add_series.density
+23
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A data.frame object.
+type The type of the series: line, bar, etc.
+mapping The mapping, same idea as ggplot2.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.density hc_add_series for density objects
+
+#### Description 
+
+hc_add_series for density objects
+Usage
+## S3 method for class 'density'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A density object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.forecast
+
+``hc_add_series for forecast objects``
+
+#### Description 
+
+hc_add_series for forecast objects
+Usage
+## S3 method for class 'forecast'
+hc_add_series(hc, data, addOriginal = FALSE,
+addLevels = TRUE, fillOpacity = 0.1, ...)24
+hc_add_series.numeric
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A forecast object.
+addOriginal Logical value to add the original series or not.
+addLevels Logical value to show predicctions bands.
+fillOpacity The opacity of bands
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+
+
+## ``hc_add_series.geo_json``
+hc_add_series for geo_json & geo_list objects
+
+#### Description 
+
+hc_add_series for geo_json & geo_list objects
+Usage
+## S3 method for class 'geo_json'
+hc_add_series(hc, data, type = NULL, ...)
+## S3 method for class 'geo_list'
+hc_add_series(hc, data, type = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A geo_json or geo_list object.
+type Type of series. Can be ’mapline’, ’mapoint’.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
