@@ -1,0 +1,446 @@
+citytemp
+
+City temperatures from a year
+
+#### Description 
+
+This data comes from the http://www.highcharts.com/ examples.
+Usage
+citytemp
+#### Format
+
+A data frame with 12 observations and 5 variables.colorize
+5
+#### Variables 
+
+* month: The months.
+* tokyo: Tokyo’s temperatures.
+* new_york: New york’s temperatures.
+* berlin: Berlin’s temperatures.
+* london: Londo’s temperatures.
+colorize
+Create vector of color from vector
+
+#### Description 
+
+Create vector of color from vector
+Usage
+colorize(x, colors = c("#440154", "#21908C", "#FDE725"))
+ #### Arguments 
+
+x A numeric, character or factor object.
+colors A character string of colors (ordered) to colorize x
+Examples
+colorize(runif(10))
+colorize(LETTERS[rbinom(20, 5, 0.5)], c("#FF0000", "#00FFFF"))
+color_classes
+Function to create dataClasses argument in hc_colorAxis
+
+#### Description 
+
+Function to create dataClasses argument in hc_colorAxis
+Usage
+color_classes(breaks = NULL, colors = c("#440154", "#21908C", "#FDE725"))6
+create_yaxis
+ #### Arguments 
+
+breaks A numeric vector
+colors A character string of colors (ordered)
+Examples
+color_classes(c(0, 10, 20, 50))
+color_stops
+Function to create stops argument in hc_colorAxis
+
+#### Description 
+
+Function to create stops argument in hc_colorAxis
+Usage
+color_stops(n = 10, colors = c("#440154", "#21908C", "#FDE725"))
+ #### Arguments 
+
+n A numeric indicating how much quantiles generate.
+colors A character string of colors (ordered)
+Examples
+color_stops(5)
+create_yaxis
+Creating multiples yAxis for add a highcharts
+
+#### Description 
+
+Creating multiples yAxis for add a highcharts
+Usage
+create_yaxis(naxis = 2, heights = 1, sep = 0.01, offset = 0,
+turnopposite = TRUE, ...)dash_styles
+7
+ #### Arguments 
+
+naxis Number of axis an integer.
+heights A numeric vector. This values will be normalized.
+sep A numeric value for the separation (in percentage) for the panes.
+offset A numeric value (in percentage).
+turnopposite A logical value to turn the side of each axis or not.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#yAxis.
+Examples
+highchart() %>%
+hc_yAxis_multiples(create_yaxis(naxis = 2, heights = c(2, 1))) %>%
+hc_add_series(data = c(1,3,2), yAxis = 0) %>%
+hc_add_series(data = c(20, 40, 10), yAxis = 1)
+highchart() %>%
+hc_yAxis_multiples(create_yaxis(naxis = 3, lineWidth = 2, title = list(text = NULL))) %>%
+hc_add_series(data = c(1,3,2)) %>%
+hc_add_series(data = c(20, 40, 10), yAxis = 1) %>%
+hc_add_series(data = c(200, 400, 500), type = "column", yAxis = 2) %>%
+hc_add_series(data = c(500, 300, 400), type = "column", yAxis = 2)
+dash_styles
+Get dash styles
+
+#### Description 
+
+Get dash style to use on highcharts objects.
+Usage
+dash_styles()8
+download_map_data
+datetime_to_timestamp Date to Timesstamps
+
+#### Description 
+
+Turn a date time vector to timestamp format
+Usage
+datetime_to_timestamp(dt)
+ #### Arguments 
+
+dt
+Date or datetime vector
+Examples
+datetime_to_timestamp(
+as.Date(c("2015-05-08", "2015-09-12"),
+#### Format
+ = "%Y-%m-%d"))
+download_map_data
+Auxilar function to download the map data form a url The urls are
+listed in https://code.highcharts.com/mapdata/.
+
+#### Description 
+
+Auxilar function to download the map data form a url The urls are listed in https://code.highcharts.
+com/mapdata/.
+Usage
+download_map_data(url = "custom/world.js", showinfo = FALSE)
+ #### Arguments 
+
+url The map’s url.
+showinfo Show the properties of the downloaded map to know how are the keys to add
+data in hcmap.
+See Also
+hcmapexport_hc
+9
+Examples
+mpdta <- download_map_data("https://code.highcharts.com/mapdata/countries/us/us-ca-all.js")
+str(mpdta, 1)
+
+
+
+
+
+hc_colors
+Adding color options to highchart objects
+
+#### Description 
+
+An array containing the default colors for the chart’s series. When all colors are used, new colors
+are pulled from the start again.
+Usage
+hc_colors(hc, colors)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+colors A vector of colors.42
+hc_credits
+Examples
+library("viridisLite")
+cols <- viridis(3)
+cols <- substr(cols, 0, 7)
+highcharts_demo() %>%
+hc_colors(cols)
+hc_credits
+Adding credits options to highchart objects
+
+#### Description 
+
+highcarter by default don’t put credits in the chart. You can add credits using these options.
+Usage
+hc_credits(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#credits.
+Examples
+data("citytemp")
+highchart() %>%
+hc_xAxis(categories = citytemp$month) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo, type = "bar") %>%
+hc_credits(enabled = TRUE, text = "htmlwidgets.org",
+href = "http://www.htmlwidgets.org/")hc_defs
+43
+hc_defs
+Adding patterns to be used in highcharts series
+
+#### Description 
+
+Helper function to use the fill patter plugin http://www.highcharts.com/plugin-registry/single/9/Pattern-
+Fill.
+Usage
+hc_defs(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://www.highcharts.com/plugin-registry/single/
+9/Pattern-Fill.
+hc_drilldown
+Drilldown options for higcharts objects
+
+#### Description 
+
+Options for drill down, the concept of inspecting increasingly high resolution data through clicking
+on chart items like columns or pie slices.
+Usage
+hc_drilldown(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#drilldown.
+Examples
+library("dplyr")
+library("purrr")
+df <- data_frame(
+name = c("Animals", "Fruits", "Cars"),
+y = c(5, 2, 4),
+drilldown = tolower(name)
+)44
+hc_drilldown
+df
+ds <- list_parse(df)
+names(ds) <- NULL
+str(ds)
+hc <- highchart() %>%
+hc_chart(type = "column") %>%
+hc_title(text = "Basic drilldown") %>%
+hc_xAxis(type = "category") %>%
+hc_legend(enabled = FALSE) %>%
+hc_plotOptions(
+series = list(
+boderWidth = 0,
+dataLabels = list(enabled = TRUE)
+)
+) %>%
+hc_add_series(
+name = "Things",
+colorByPoint = TRUE,
+data = ds
+)
+dfan <- data_frame(
+name = c("Cats", "Dogs", "Cows", "Sheep", "Pigs"),
+value = c(4, 3, 1, 2, 1)
+)
+dffru <- data_frame(
+name = c("Apple", "Organes"),
+value = c(4, 2)
+)
+dfcar <- data_frame(
+name = c("Toyota", "Opel", "Volkswage"),
+value = c(4, 2, 2)
+)
+second_el_to_numeric <- function(ls){
+map(ls, function(x){
+x[[2]] <- as.numeric(x[[2]])
+x
+})
+}
+dsan <- second_el_to_numeric(list_parse2(dfan))
+dsfru <- second_el_to_numeric(list_parse2(dffru))
+dscar <- second_el_to_numeric(list_parse2(dfcar))hc_elementId
+45
+hc <- hc %>%
+hc_drilldown(
+allowPointDrilldown = TRUE,
+series = list(
+list(
+id = "animals",
+data = dsan
+),
+list(
+id = "fruits",
+data = dsfru
+),
+list(
+id = "cars",
+data = dscar
+)
+)
+)
+hc
+hc_elementId
+Setting elementId
+
+#### Description 
+
+Function to modify the id for the container.
+Usage
+hc_elementId(hc, id = NULL)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+id A string
+Examples
+hchart(rnorm(10)) %>%
+hc_elementId("newid")46
+hc_legend
+hc_exporting
+Exporting options for higcharts objects
+
+#### Description 
+
+Exporting options for higcharts objects. You can define the file’s name or the output format.
+Usage
+hc_exporting(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#exporting.
+Examples
+require("dplyr")
+data("citytemp")
+highchart() %>%
+hc_xAxis(categories = citytemp$month) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo) %>%
+hc_add_series(name = "London", data = citytemp$london) %>%
+hc_exporting(enabled = TRUE,
+filename = "custom-file-name")
+hc_legend
+Adding legend options to highchart objects
+
+#### Description 
+
+Function to modify styles for the box containing the symbol, name and color for each item or point
+item in the chart.
+Usage
+hc_legend(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highcharts#legend.hc_mapNavigation
+47
+Examples
+data(citytemp)
+highchart() %>%
+hc_xAxis(categories = citytemp$month) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo) %>%
+hc_add_series(name = "London", data = citytemp$london) %>%
+hc_legend(align = "left", verticalAlign = "top",
+layout = "vertical", x = 0, y = 100)
+hc_mapNavigation
+Adding mapNavigation options to highmaps charts
+
+#### Description 
+
+Options regarding the mapNavigation: A collection of options for zooming and panning in a map.
+Usage
+hc_mapNavigation(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highmaps#mapNavigation.
+hc_motion
+Adding options to Motion options to highcharts objects
+
+#### Description 
+
+The Motion Highcharts Plugin adds an interactive HTML5 player to any Highcharts chart (High-
+charts, Highmaps and Highstock).
+Usage
+hc_motion(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in https://github.com/larsac07/Motion-Highcharts-Plugin/
+wiki.48
+hc_pane
+hc_navigator
+Adding navigator options to highstock charts
+
+#### Description 
+
+Options regarding the navigator: The miniseries below chart in a highstock chart.
+Usage
+hc_navigator(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highstock#navigator.
+hc_pane
+Adding panes
+
+#### Description 
+
+Applies only to polar charts and angular gauges. This configuration object holds general options
+for the combined X and Y axes set. Each xAxis or yAxis can reference the pane by index.
+Usage
+hc_pane(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#pane.hc_plotOptions
+hc_plotOptions
+49
+Adding plot options to highchart objects
+
+#### Description 
+
+The plotOptions is a wrapper object for config objects for each series type. The config objects for
+each series can also be overridden for each series item as given in the series array.
+Usage
+hc_plotOptions(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highcharts#plotOptions.
+Details
+Configuration options for the series are given in three levels. Options for all series in a chart are
+given with the hc_plotOptions function. Then options for all series of a specific type are given
+in the plotOptions of that type, for example hc_plotOptions(line = list(...)). Next, options
+for one single series are given in the series array.
+Examples
+data(citytemp)
+hc <- highchart() %>%
+hc_plotOptions(line = list(color = "blue",
+marker = list(
+fillColor = "white",
+lineWidth = 2,
+lineColor = NULL
+)
+)) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo) %>%
+hc_add_series(name = "London", data = citytemp$london,
+marker = list(fillColor = "black"))
+hc
+# override the `blue` option with the explicit parameter
+hc %>%
+hc_add_series(name = "London",
+data = citytemp$new_york,50
+hc_rm_series
+color = "red")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
