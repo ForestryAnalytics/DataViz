@@ -1,0 +1,329 @@
+hc_add_series_ohlc
+Shorcut for create candlestick charts
+
+#### Description 
+
+This function helps to create candlestick from xts objects obtaining by getSymbols function from
+the quantmod.
+Usage
+hc_add_series_ohlc(hc, x, type = "candlestick", ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+x A OHLC object from the quantmod package.
+type The type of chart. Can be candlestick or ohlc.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Examples
+## Not run:
+library("xts")
+data(sample_matrix)
+matrix_xts <- as.xts(sample_matrix, dateFormat = "Date")
+head(matrix_xts)hc_add_series_scatter
+33
+class(matrix_xts)
+highchart() %>%
+hc_add_series_ohlc(matrix_xts)
+library("quantmod")
+x <- getSymbols("AAPL", auto.assign = FALSE)
+y <- getSymbols("SPY", auto.assign = FALSE)
+highchart() %>%
+hc_add_series_ohlc(x) %>%
+hc_add_series_ohlc(y)
+## End(Not run)
+hc_add_series_scatter Shorcut for create scatter plots
+
+#### Description 
+
+This function helps to create scatter plot from two numerics vectors. Options argumets like size,
+color and label for points are added.
+Usage
+hc_add_series_scatter(hc, x, y, z = NULL, color = NULL, label = NULL,
+showInLegend = FALSE, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+x A numeric vector.
+y A numeric vector. Same length of x.
+z A numeric vector for size. Same length of x.
+color A vector to color the points.
+label A vector to put names in the dots if you enable the datalabels.
+showInLegend Logical value to show or not the data in the legend box.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).34
+hc_add_series_times_values
+Examples
+## Not run:
+hc <- highchart()
+hc_add_series_scatter(hc,
+hc_add_series_scatter(hc,
+hc_add_series_scatter(hc,
+hc_add_series_scatter(hc,
+hc_add_series_scatter(hc,
+mtcars$wt,
+mtcars$wt,
+mtcars$wt,
+mtcars$wt,
+mtcars$wt,
+mtcars$mpg)
+mtcars$mpg, mtcars$drat)
+mtcars$mpg, mtcars$drat, mtcars$am)
+mtcars$mpg, mtcars$drat, mtcars$qsec)
+mtcars$mpg, mtcars$drat, mtcars$qsec, rownames(mtcars))
+# Add named attributes to data (attributes length needs to match number of rows)
+hc_add_series_scatter(hc, mtcars$wt, mtcars$mpg, mtcars$drat, mtcars$qsec,
+name = rownames(mtcars), gear = mtcars$gear) %>%
+hc_tooltip(pointFormat = "<b>{point.name}</b><br/>Gear: {point.gear}")
+## End(Not run)
+hc_add_series_times_values
+Shorcut for create/add time series from times and values
+
+#### Description 
+
+This function add a time series to a highchart object.
+Usage
+hc_add_series_times_values(hc, dates, values, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+dates A date vector (same length as values)
+values A numeric vector
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#
+series).
+Details
+This function modify the type of chart to datetimehc_add_series_treemap
+35
+Examples
+## Not run:
+require("ggplot2")
+data(economics, package = "ggplot2")
+hc_add_series_times_values(hc = highchart(),
+dates = economics$date,
+values = economics$psavert,
+name = "Personal Savings Rate")
+## End(Not run)
+hc_add_series_treemap Shorcut for create treemaps
+
+#### Description 
+
+This function helps to create higcharts treemaps from treemap objects from the package treemap.
+Usage
+hc_add_series_treemap(hc, tm, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+tm A treemap object from the treemap package.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Examples
+```{r}
+## Not run:
+library("treemap")
+library("viridis")
+data(GNI2014)
+head(GNI2014)
+tm <- treemap(GNI2014, index = c("continent", "iso3"),
+vSize = "population", vColor = "GNI",
+type = "comp", palette = rev(viridis(6)),
+draw = FALSE)36
+hc_add_series_ts
+highchart(height = 800) %>%
+hc_add_series_treemap(tm, allowDrillToNode = TRUE,
+layoutAlgorithm = "squarified",
+name = "tmdata") %>%
+hc_title(text = "Gross National Income World Data") %>%
+hc_tooltip(pointFormat = "<b>{point.name}</b>:<br>
+Pop: {point.value:,.0f}<br>
+GNI: {point.valuecolor:,.0f}")
+## End(Not run)
+```
+
+## ``hc_add_series_ts``
+Shorcut for create/add time series charts from a ts object
+
+#### Description 
+
+This function add a time series to a highchart object from a ts object.
+Usage
+hc_add_series_ts(hc, ts, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+ts A time series object.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#
+series).
+Details
+This function modify the type of chart to datetime
+```{r}
+Examples
+## Not run:
+highchart() %>%
+hc_title(text = "Monthly Airline Passenger Numbers 1949-1960") %>%
+hc_subtitle(text = "The classic Box and Jenkins airline data") %>%
+hc_add_series_ts(AirPassengers, name = "passengers") %>%
+hc_tooltip(pointFormat = '{point.y} passengers')
+highchart() %>%
+hc_title(text = "Monthly Deaths from Lung Diseases in the UK") %>%
+hc_add_series_ts(fdeaths, name = "Female") %>%hc_add_series_xts
+hc_add_series_ts(mdeaths, name = "Male")
+## End(Not run)
+```
+## hc_add_series_xts
+Shorcut for create highstock chart from xts object
+
+#### Description 
+
+This function helps to create highstock charts from xts objects obtaining by getSymbols function
+from the quantmod.
+Usage
+hc_add_series_xts(hc, x, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+x A xts object from the quantmod package.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Examples
+## Not run:
+library("quantmod")
+usdjpy <- getSymbols("USD/JPY", src="oanda", auto.assign = FALSE)
+eurkpw <- getSymbols("EUR/KPW", src="oanda", auto.assign = FALSE)
+highchart(type = "stock") %>%
+hc_add_series_xts(usdjpy, id = "usdjpy") %>%
+hc_add_series_xts(eurkpw, id = "eurkpw")
+## End(Not run)
+
+##``hc_add_theme``
+Add themes to a highchart object
+
+#### Description 
+
+Add highcharts themes to a highchart object.
+Usage
+hc_add_theme(hc, hc_thm)
+ #### Arguments 
+
+hc
+hc_thm
+A highchart object
+A highchart theme object ("hc_theme" class)
+Examples
+```{r}
+highchart() %>%
+hc_add_series(data = c(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
+26.5, 23.3, 18.3, 13.9, 9.6),
+type = "column") %>%
+hc_add_theme(hc_theme_sandsignika())
+```
+
+
+## ``hc_annotations``
+Adding annotations to highcharts objects
+
+#### Description 
+
+Helper function to add annotations to highcharts library.
+Usage
+hc_annotations(hc, ...)
+hc_add_annotation(hc, ...)
+hc_add_annotations(hc, x)
+
+#### Arguments 
+
+hc
+...
+x
+A highchart htmlwidget object.
+ #### Arguments 
+ defined in http://www.highcharts.com/plugin-registry/single/
+17/Annotations.
+A list or a data.frame of annotations.hc_annotationsOptions
+
+The x elemens must have xValue and yValue elements
+hc_annotationsOptions Setting Annotations Options
+
+#### Description 
+
+Setting Annotations Options
+Usage
+hc_annotationsOptions(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Options defined in http://www.highcharts.com/plugin-registry/single/
+17/Annotations.
+hc_chart
+Adding chart options to highchart objects
+
+#### Description 
+
+Options regarding the chart area and plot area as well as general chart options.
+Usage
+hc_chart(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.40
+hc_colorAxis
+
+#### Examples
+```{r}
+data(citytemp)
+hc <- highchart() %>%
+hc_xAxis(categories = citytemp$month) %>%
+hc_add_series(name = "Tokyo", data = citytemp$tokyo) %>%
+hc_add_series(name = "London", data = citytemp$london)
+hc %>%
+hc_chart(type = "column",
+options3d = list(enabled = TRUE, beta = 15, alpha = 15))
+hc %>%
+hc_chart(borderColor = '#EBBA95',
+borderRadius = 10,
+borderWidth = 2,
+backgroundColor = list(
+linearGradient = c(0, 0, 500, 500),
+stops = list(
+list(0, 'rgb(255, 255, 255)'),
+list(1, 'rgb(200, 200, 255)')
+)))
+```
+
+## ``hc_colorAxis``
+Adding Color Axis options to highchart objects
+
+#### Description 
+
+Function to set the axis color to highcharts objects.
+Usage
+hc_colorAxis(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highmaps#colorAxis.
+Examples
+```{r}
+nyears <- 5
+df <- expand.grid(seq(12) - 1, seq(nyears) - 1)
+df$value <- abs(seq(nrow(df)) + 10 * rnorm(nrow(df))) + 10
+df$value <- round(df$value, 2)
+ds <- list_parse2(df)
+hc <- highchart() %>%
+hc_chart(type = "heatmap") %>%
+hc_title(text = "Simulated values by years and months") %>%
+hc_xAxis(categories = month.abb) %>%
+hc_yAxis(categories = 2016 - nyears + seq(nyears)) %>%
+hc_add_series(name = "value", data = ds)
+hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348")
+hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348",
+type = "logarithmic")
+```
+
+```{r}
+require("viridisLite")
+n <- 4
+stops <- data.frame(q = 0:n/n,
+c = substring(viridis(n + 1), 0, 7),
+stringsAsFactors = FALSE)
+stops <- list_parse2(stops)
+hc_colorAxis(hc, stops = stops, max = 75)
+```
