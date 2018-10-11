@@ -1,0 +1,420 @@
+hctreemap
+Shorcut for create treemaps
+
+#### Description 
+
+This function helps to create higcharts treemaps from treemap objects from the package treemap.
+Usage
+hctreemap(tm, ...)
+ #### Arguments 
+
+tm A treemap object from the treemap package.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Examples
+## Not run:
+library("treemap")
+library("viridis")
+data(GNI2014)
+head(GNI2014)
+tm <- treemap(GNI2014, index = c("continent", "iso3"),
+vSize = "population", vColor = "GNI",
+type = "comp", palette = rev(viridis(6)),hcts
+21
+draw = FALSE)
+hctreemap(tm, allowDrillToNode = TRUE, layoutAlgorithm = "squarified") %>%
+hc_title(text = "Gross National Income World Data") %>%
+hc_tooltip(pointFormat = "<b>{point.name}</b>:<br>
+Pop: {point.value:,.0f}<br>
+GNI: {point.valuecolor:,.0f}")
+## End(Not run)
+hcts
+Shorcut to make time series or line charts
+
+#### Description 
+
+Shorcut to make time series or line charts
+Usage
+hcts(x, ...)
+ #### Arguments 
+
+x A numeric vector or a time series object.
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
+hc_add_series
+Adding and removing series from highchart objects
+
+#### Description 
+
+Adding and removing series from highchart objects
+Usage
+hc_add_series(hc, data = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data An R object like numeric, list, ts, xts, etc.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.22
+hc_add_series.data.frame
+Examples
+highchart() %>%
+hc_add_series(data = abs(rnorm(5)), type = "column") %>%
+hc_add_series(data = purrr::map(0:4, function(x) list(x, x)), type = "scatter", color = "blue")
+hc_add_series.character
+hc_add_series for character and factor objects
+
+#### Description 
+
+hc_add_series for character and factor objects
+Usage
+## S3 method for class 'character'
+hc_add_series(hc, data, ...)
+## S3 method for class 'factor'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A character or factor object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.data.frame
+hc_add_series for data frames objects
+
+#### Description 
+
+hc_add_series for data frames objects
+Usage
+## S3 method for class 'data.frame'
+hc_add_series(hc, data, type = NULL, mapping = hcaes(),
+...)hc_add_series.density
+23
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A data.frame object.
+type The type of the series: line, bar, etc.
+mapping The mapping, same idea as ggplot2.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.density hc_add_series for density objects
+
+#### Description 
+
+hc_add_series for density objects
+Usage
+## S3 method for class 'density'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A density object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.forecast
+
+``hc_add_series for forecast objects``
+
+#### Description 
+
+hc_add_series for forecast objects
+Usage
+## S3 method for class 'forecast'
+hc_add_series(hc, data, addOriginal = FALSE,
+addLevels = TRUE, fillOpacity = 0.1, ...)24
+hc_add_series.numeric
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A forecast object.
+addOriginal Logical value to add the original series or not.
+addLevels Logical value to show predicctions bands.
+fillOpacity The opacity of bands
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+
+
+## ``hc_add_series.geo_json``
+hc_add_series for geo_json & geo_list objects
+
+#### Description 
+
+hc_add_series for geo_json & geo_list objects
+Usage
+## S3 method for class 'geo_json'
+hc_add_series(hc, data, type = NULL, ...)
+## S3 method for class 'geo_list'
+hc_add_series(hc, data, type = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A geo_json or geo_list object.
+type Type of series. Can be ’mapline’, ’mapoint’.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.numeric ‘hc_add_series‘ for numeric objects
+
+#### Description 
+
+‘hc_add_series‘ for numeric objects
+Usage
+## S3 method for class 'numeric'
+hc_add_series(hc, data, ...)hc_add_series.ts
+25
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A numeric object
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.ts
+hc_add_series for time series objects
+
+#### Description 
+
+hc_add_series for time series objects
+Usage
+## S3 method for class 'ts'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A time series ts object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+hc_add_series.xts
+hc_add_series for xts objects
+
+#### Description 
+
+hc_add_series for xts objects
+Usage
+## S3 method for class 'xts'
+hc_add_series(hc, data, ...)
+## S3 method for class 'ohlc'
+hc_add_series(hc, data, type = "candlestick", ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A xts object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+type The type of wayto show the xts object. Can be ’candlestick’ or ’ohlc’.26
+hc_add_series_df
+hc_add_series_boxplot Shorcut for create boxplot
+
+#### Description 
+
+Shorcut for create boxplot
+Usage
+hc_add_series_boxplot(hc, x, by = NULL, outliers = TRUE, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+x A numerci vector
+by A string vector same length of x
+outliers A boolean value to show or not the outliers
+... Aditional arguments for the data series (http://api.highcharts.com/highcharts#
+series).
+Examples
+## Not run:
+highchart() %>%
+hc_add_series_boxplot(x = iris$Sepal.Length, by = iris$Species, name = "length")
+## End(Not run)
+hc_add_series_df
+Shorcut for tidy data frame a la ggplot2/qplot
+
+#### Description 
+
+Function to create chart from tidy data frames. As same as qplot you can use aesthetic including
+the group variable
+Usage
+hc_add_series_df(hc, data, type = NULL, ...)hc_add_series_df
+27
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A data.frame object.
+type The type of chart. Possible values are line, scatter, point, colum, columnrange,
+etc. See http://api.highcharts.com/highcharts#series.
+... Aesthetic mappings, x y group color low high.
+Details
+The types supported are line, column, point, polygon, columrange, spline, areaspline among others.
+Automatically parsed de data frame (to a list o series). You you can use the default parameters
+of highcharts such as x, y, z, color, name, low, high for each series, for example check http:
+//api.highcharts.com/highcharts#series<bubble>.data.
+Examples
+## Not run:
+require("dplyr")
+n <- 50
+df <- data_frame(
+x = rnorm(n),
+y = x * 2 + rnorm(n),
+w = x^2
+)
+hc_add_series_df(highchart(), data = df, type = "point", x = x, y = y)
+hc_add_series_df(highchart(), data = df, type = "point", color = w)
+hc_add_series_df(highchart(), data = df, type = "point", color = w, size = y)
+m <- 50
+s <- cumsum(rnorm(m))
+e <- 2 + rbeta(m, 2, 2)
+df2 <- data_frame(
+var = seq(m),
+l = s - e,
+h = s + e,
+n = paste("I'm point ", var)
+)
+hc_add_series_df(highchart(), data = df2, type = "columnrange",
+x = var, low = l, high = h, name = n, color = var)
+hc_add_series_df(highchart(), iris, "point",
+x = Sepal.Length, y = Sepal.Width, group = Species)
+data(mpg, package = "ggplot2")28
+hc_add_series_flags
+# point and scatter is the same
+hc_add_series_df(highchart(), mpg, "scatter", x = displ, y = cty)
+hc_add_series_df(highchart(), mpg, "point", x = displ, y = cty,
+group = manufacturer)
+mpgman <- count(mpg, manufacturer)
+hc_add_series_df(highchart(), mpgman, "column", x = manufacturer, y = n) %>%
+hc_xAxis(type = "category")
+mpgman2 <- count(mpg, manufacturer, year)
+hc_add_series_df(highchart(), mpgman2, "bar", x = manufacturer, y = n, group = year) %>%
+hc_xAxis(type = "category")
+data(economics, package = "ggplot2")
+hc_add_series_df(highchart(), economics, "line", x = date, y = unemploy) %>%
+hc_xAxis(type = "datetime")
+data(economics_long, package = "ggplot2")
+economics_long2 <- filter(economics_long,
+variable %in% c("pop", "uempmed", "unemploy"))
+hc_add_series_df(highchart(), economics_long2, "line", x = date,
+y = value01, group = variable) %>%
+hc_xAxis(type = "datetime")
+## End(Not run)
+hc_add_series_flags
+Shorcut for add flags to highstock chart
+
+#### Description 
+
+This function helps to add flags highstock charts created from xts objects.
+Usage
+hc_add_series_flags(hc, dates, title = LETTERS[seq(length(dates))],
+text = title, id = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+dates Date vector.
+title A character vector with titles.hc_add_series_labels_values
+29
+text A character vector with the 
+#### Description 
+.
+id The name of the series to add the flags. A previous series must be added whith
+this id.
+... Aditional shared arguments for the *flags* data series (http://api.highcharts.
+com/highstock#plotOptions.flags)
+Examples
+## Not run:
+library("quantmod")
+usdjpy <- getSymbols("USD/JPY", src="oanda", auto.assign = FALSE)
+dates <- as.Date(c("2015-05-08", "2015-09-12"), format = "%Y-%m-%d")
+highchart(type = "stock") %>%
+hc_add_series_xts(usdjpy, id = "usdjpy") %>%
+hc_add_series_flags(dates,
+title = c("E1", "E2"),
+text = c("This is event 1", "This is the event 2"),
+id = "usdjpy")
+## End(Not run)
+hc_add_series_labels_values
+Shorcut for add series for pie, bar and column charts
+
+#### Description 
+
+This function add data to plot pie, bar and column charts.
+Usage
+hc_add_series_labels_values(hc, labels, values, colors = NULL, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+labels A vector of labels.
+values A numeric vector. Same length of labels.
+colors A not required color vector (hexadecimal format). Same length of labels.
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).30
+hc_add_series_list
+Examples
+data("favorite_bars")
+data("favorite_pies")
+highchart() %>%
+hc_title(text = "This is a bar graph describing my favorite pies
+including a pie chart describing my favorite bars") %>%
+hc_subtitle(text = "In percentage of tastiness and awesomeness") %>%
+hc_add_series_labels_values(favorite_pies$pie, favorite_pies$percent, name = "Pie",
+colorByPoint = TRUE, type = "column") %>%
+hc_add_series_labels_values(favorite_bars$bar, favorite_bars$percent,
+colors = substr(terrain.colors(5), 0 , 7), type = "pie",
+name = "Bar", colorByPoint = TRUE, center = c('35%', '10%'),
+size = 100, dataLabels = list(enabled = FALSE)) %>%
+hc_yAxis(title = list(text = "percentage of tastiness"),
+labels = list(format = "{value}%"), max = 100) %>%
+hc_xAxis(categories = favorite_pies$pie) %>%
+hc_legend(enabled = FALSE) %>%
+hc_tooltip(pointFormat = "{point.y}%")
+hc_add_series_list
+Shorcut for data series from a list of data series
+
+#### Description 
+
+Shorcut for data series from a list of data series
+Usage
+hc_add_series_list(hc, x)
+ #### Arguments 
+
+hc
+x
+A highchart htmlwidget object.
+A list or a data.frame of series.
+Examples
+ds <- lapply(seq(5), function(x){
+list(data = cumsum(rnorm(100, 2, 5)), name = x)
+})
+highchart() %>%
+hc_plotOptions(series = list(marker = list(enabled = FALSE))) %>%
+hc_add_series_list(ds)hc_add_series_map
+hc_add_series_map
+31
+Add a map series
+
+#### Description 
+
+Add a map series
+Usage
+hc_add_series_map(hc, map, df, value, joinBy, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+map A list object loaded from a geojson file.
+df A data.frame object with data to chart. Code region and value are required.
+value A string value with the name of the column to chart.
+joinBy What property to join the map and df
+... Aditional shared arguments for the data series (http://api.highcharts.com/
+highcharts#series).
+Details
+This function force the highchart object to be map type.
+Examples
+library("dplyr")
+data("USArrests", package = "datasets")
+data("usgeojson")
+USArrests <- mutate(USArrests, state = rownames(USArrests))
+highchart() %>%
+hc_title(text = "Violent Crime Rates by US State") %>%
+hc_subtitle(text = "Source: USArrests data") %>%
+hc_add_series_map(usgeojson, USArrests, name = "Murder arrests (per 100,000)",
+value = "Murder", joinBy = c("woename", "state"),
+dataLabels = list(enabled = TRUE,
+#### Format
+ = '{point.properties.postalcode}')) %>%
+hc_colorAxis(stops = color_stops()) %>%
+hc_legend(valueDecimals = 0, valueSuffix = "%") %>%
+hc_mapNavigation(enabled = TRUE)
+## Not run:32
+hc_add_series_ohlc
+data(worldgeojson, package = "highcharter")
+data("GNI2014", package = "treemap")
+highchart(type = "map") %>%
+hc_add_series_map(map = worldgeojson, df = GNI2014, value = "GNI", joinBy = "iso3") %>%
+hc_colorAxis(stops = color_stops()) %>%
+hc_tooltip(useHTML = TRUE, headerFormat = "",
+pointFormat = "this is {point.name} and have {point.population} people with gni of {point.GNI}")
+## End(Not run)
+
+
+
