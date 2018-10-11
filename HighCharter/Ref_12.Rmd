@@ -1,0 +1,203 @@
+hc_theme_null
+Null theme for highcharts
+
+#### Description 
+
+Null theme for highcharts. Axis are removed (visible = FALSE).
+Usage
+hc_theme_null(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme62
+hc_theme_smpl
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_null())
+hc_theme_sandsignika
+Sand Signika theme for highcharts
+
+#### Description 
+
+Sand Signika theme for highcharts
+Usage
+hc_theme_sandsignika(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_sandsignika())
+hc_theme_smpl
+Simple theme for highcharts
+
+#### Description 
+
+Desing inspired by https://github.com/hrbrmstr/hrbrmisc/blob/master/R/themes.r and
+color by https://www.materialui.co/flatuicolors
+Usage
+hc_theme_smpl(...)
+ #### Arguments 
+
+...
+Named argument to modify the themehc_theme_sparkline
+63
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_smpl())
+hc_theme_sparkline
+Sparkline theme for highcharts
+
+#### Description 
+
+Based on http://www.highcharts.com/demo/sparkline.
+Usage
+hc_theme_sparkline(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_sparkline())
+hc_theme_tufte
+Tufte theme for highcharts
+
+#### Description 
+
+Desing inspired by Edward Tufte style.
+Usage
+hc_theme_tufte(...)
+hc_theme_tufte2(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme64
+hc_title
+Examples
+n <- 15
+dta <- dplyr::data_frame(
+x = rnorm(n),
+y = 1.5 * x + rnorm(n))
+highchart() %>%
+hc_chart(type = "scatter") %>%
+hc_add_series(data = list_parse(dta)) %>%
+hc_add_theme(hc_theme_tufte())
+values <- 1 + abs(rnorm(12))
+highchart() %>%
+hc_chart(type = "column") %>%
+hc_add_series(data = values) %>%
+hc_xAxis(categories = month.abb) %>%
+hc_add_theme(hc_theme_tufte2())
+hc_title
+Adding title and subtitle options to highchart objects
+
+#### Description 
+
+Function to add and change title and subtitle’a style.
+Usage
+hc_title(hc, ...)
+hc_subtitle(hc, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highcharts#title.
+Examples
+highchart() %>%
+hc_add_series(data = c(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
+26.5, 23.3, 18.3, 13.9, 9.6),
+type = "column") %>%
+hc_title(text = "This is a title with <i>margin</i> and <b>Strong or bold text</b>",
+margin = 20, align = "left",
+style = list(color = "#90ed7d", useHTML = TRUE)) %>%
+hc_subtitle(text = "And this is a subtitle with more information",hc_tooltip
+65
+align = "left", style = list(color = "#2b908f", fontWeight = "bold"))
+hc_tooltip
+Adding tooltip options to highchart objects
+
+#### Description 
+
+Options for the tooltip that appears when the user hovers over a series or point.
+Usage
+hc_tooltip(hc, ..., sort = FALSE, table = FALSE)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+... Arguments are defined in http://api.highcharts.com/highcharts#tooltip.
+sort Logical value to implement sort according this.point http://stackoverflow.
+com/a/16954666/829971.
+table Logical value to implement table in tooltip: http://stackoverflow.com/a/
+22327749/829971.
+Examples
+highcharts_demo() %>%
+hc_tooltip(crosshairs = TRUE, borderWidth = 5, sort = TRUE, table = TRUE)
+hc_xAxis
+Adding axis options to highchart objects
+
+#### Description 
+
+Change axis labels or style. Add lines or band to charts.
+Usage
+hc_xAxis(hc, ...)
+hc_yAxis(hc, ...)
+hc_yAxis_multiples(hc, ...)66
+hex_to_rgba
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#xAxis.
+Examples
+highchart() %>%
+hc_add_series(data = c(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
+26.5, 23.3, 18.3, 13.9, 9.6),
+type = "spline") %>%
+hc_xAxis(title = list(text = "x Axis at top"),
+opposite = TRUE,
+plotLines = list(
+list(label = list(text = "This is a plotLine"),
+color = "#'FF0000",
+width = 2,
+value = 5.5))) %>%
+hc_yAxis(title = list(text = "y Axis at right"),
+opposite = TRUE,
+minorTickInterval = "auto",
+minorGridLineDashStyle = "LongDashDotDot",
+showFirstLabel = FALSE,
+showLastLabel = FALSE,
+plotBands = list(
+list(from = 25, to = 80, color = "rgba(100, 0, 0, 0.1)",
+label = list(text = "This is a plotBand"))))
+highchart() %>%
+hc_yAxis_multiples(
+list(top = "0%", height = "30%", lineWidth = 3),
+list(top = "30%", height = "70%", offset = 0,
+showFirstLabel = FALSE, showLastLabel = FALSE)
+) %>%
+hc_add_series(data = rnorm(10)) %>%
+hc_add_series(data = rexp(10), type = "spline", yAxis = 1)
+hex_to_rgba
+Transform colors from hexadeximal format to rgba hc notation
+
+#### Description 
+
+Transform colors from hexadeximal format to rgba hc notation
+Usage
+hex_to_rgba(x, alpha = 1)higcharter
+67
+ #### Arguments 
+
+x colors in hexadecimal format
+alpha alpha
+Examples
+hex_to_rgba(x <- c("#440154", "#21908C", "#FDE725"))
+higcharter
+An htmlwidget interface to the Highcharts javascript chart library
+
+#### Description 
+
+Highcarts http://www.highcharts.com/ is a mature javascript charting library. Highcharts pro-
+vide a various type of charts, from scatters to heatmaps or treemaps.
+Author(s)
+Joshua Kunst (@jbkunst)
