@@ -1,0 +1,122 @@
+
+hc_theme_flatdark
+Flatdark theme for highcharts
+
+#### Description 
+
+Base16 Insipred theme https://github.com/chriskempson/base16 and https://github.com/cttobin/ggthemr#flat
+Usage
+hc_theme_flatdark(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_flatdark())
+hc_theme_ft
+Financial Times theme for highcharts
+
+#### Description 
+
+Financial Times theme for highcharts
+Usage
+hc_theme_ft(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_ft())hc_theme_google
+59
+hc_theme_google
+Google theme for highcharts
+
+#### Description 
+
+Google theme for highcharts based on https://books.google.com/ngrams/
+Usage
+hc_theme_google(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_google())
+hc_theme_gridlight
+Grid Light theme for highcharts
+
+#### Description 
+
+Grid Light theme for highcharts
+Usage
+hc_theme_gridlight(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_gridlight())60
+hc_theme_merge
+hc_theme_handdrawn
+Hand Drawn theme for highcharts
+
+#### Description 
+
+Hand Drawn theme for highcharts. Inspirated by https://www.amcharts.com/inspiration/hand-drawn/
+Usage
+hc_theme_handdrawn(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_handdrawn())
+hc_theme_merge
+Merge themes
+
+#### Description 
+
+Function to combine hc_theme objects.
+Usage
+hc_theme_merge(...)
+ #### Arguments 
+
+...
+hc_theme objects.
+Examples
+thm <- hc_theme_merge(
+hc_theme_darkunica(),
+hc_theme(
+chart = list(
+backgroundColor = "transparent",
+divBackgroundImage = "http://cdn.wall-pix.net/albums/art-3Dview/00025095.jpg"
+),hc_theme_monokai
+)
+)
+61
+title = list(
+style = list(
+color = 'white',
+fontFamily = "Erica One"
+)
+)
+hc_theme_monokai
+Monokai theme for highcharts
+
+#### Description 
+
+A well know text editor theme
+Usage
+hc_theme_monokai(...)
+ #### Arguments 
+
+...
+Named argument to modify the theme
+Examples
+highcharts_demo() %>%
+hc_add_theme(hc_theme_monokai())
