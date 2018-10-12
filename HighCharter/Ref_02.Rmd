@@ -166,35 +166,8 @@ outliers A boolean value to show or not the outliers.
 15
 Examples
 hcboxplot(x = iris$Sepal.Length, var = iris$Species, color = "red")
-hcdensity
-Shorcut to make density charts
 
-#### Description 
 
-Shorcut to make density charts
-Usage
-hcdensity(x, ...)
- #### Arguments 
-
-x A numeric vector or a density object.
-... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
-hchart
-Create a highchart object from a particular data type
-
-#### Description 
-
-hchart uses highchart to draw a particular plot for an object of a particular class in a single
-command. This defines the S3 generic that other classes and packages can extend.
-Usage
-hchart(object, ...)
- #### Arguments 
-
-object A R object.
-... Aditional arguments for the data series (http://api.highcharts.com/highcharts#
-series).
-Details
-Run methods(hchart) to see what objects are supported.16
-hchart.survfit
 hchart.survfit
 Plot survival curves using Highcharts
 
@@ -236,18 +209,9 @@ hchart(lsurv2, fun="cumhaz")hchist
 fit <- coxph(Surv(futime, fustat) ~ age, data = ovarian)
 ovarian.surv <- survfit(fit, newdata=data.frame(age=60))
 hchart(ovarian.surv, ranges = TRUE)
-hchist
-Shorcut to make an histogram
 
-#### Description 
 
-Shorcut to make an histogram
-Usage
-hchist(x, ...)
- #### Arguments 
 
-x A numeric vector.
-... Aditional arguments for the data series (http://api.highcharts.com/highcharts#series).
 hciconarray
 Shorcut to make icon arrays charts
 
@@ -276,43 +240,7 @@ hc_theme_flatdark(),
 hc_theme_null(chart = list(backgroundColor = "#34495e"))
 )
 )
-hcmap
-Shorcut for create map Shorcut for create map from https://code.
-highcharts.com/mapdata/ collection.
 
-#### Description 
-
-Shorcut for create map Shorcut for create map from https://code.highcharts.com/mapdata/
-collection.
-Usage
-hcmap(map = "custom/world",
-download_map_data = getOption("highcharter.download_map_data"),
-data = NULL, value = NULL, joinBy = NULL, ...)
- #### Arguments 
-
-map
-String indicating what map to chart.
-download_map_data
-A logical value whether to download (add as a depedeny) the map. Default
-FALSE.
-data Optional data to make a choropleth, in case of use the joinBy and value are
-needed.
-value A string value with the name of the column to chart.
-joinBy What property to join the map and df. the map.
-... Aditional shared arguments for the data series (http://api.highcharts.com/
-highcharts#series).hcpie
-19
-Examples
-require(dplyr)
-hcmap(nullColor = "#DADADA")
-hcmap(nullColor = "#DADADA", download_map_data = TRUE)
-data("USArrests", package = "datasets")
-USArrests <- mutate(USArrests, "woe-name" = rownames(USArrests))
-hcmap(map = "countries/us/us-all", data = USArrests,
-joinBy = "woe-name", value = "UrbanPop", name = "Urban Population")
-hcmap(map = "countries/us/us-all", data = USArrests,
-joinBy = "woe-name", value = "UrbanPop", name = "Urban Population",
-download_map_data = TRUE)
 hcpie
 Shorcut to make a pie chart
 
