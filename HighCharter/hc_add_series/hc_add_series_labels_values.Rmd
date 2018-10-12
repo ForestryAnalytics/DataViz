@@ -1,20 +1,35 @@
-hc_add_series_labels_values
+---
+title: "hc_add_series_labels_values"
+author: "Kevin O'Brien"
+date: "12 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+
+```
 Shorcut for add series for pie, bar and column charts
 
 #### Description 
 
 This function add data to plot pie, bar and column charts.
-Usage
+
+#### Usage
+<pre><code>
 hc_add_series_labels_values(hc, labels, values, colors = NULL, ...)
- #### Arguments 
+</code></pre>
+#### Arguments 
 
 * ``hc ``: A highchart htmlwidget object.
-labels A vector of labels.
-values A numeric vector. Same length of labels.
-colors A not required color vector (hexadecimal format). Same length of labels.
-... Aditional shared arguments for the data series (http://api.highcharts.com/
-highcharts#series).30
-hc_add_series_list
+* ``labels``: A vector of labels.
+* ``values``: A numeric vector. Same length of labels.
+* ``colors``: A not required color vector (hexadecimal format). Same length of labels.
+* ``...``: Aditional shared arguments for the data series 
+(http://api.highcharts.com/highcharts#series).
 
 ####Examples
 ```{r}
@@ -36,3 +51,4 @@ labels = list(format = "{value}%"), max = 100) %>%
 hc_xAxis(categories = favorite_pies$pie) %>%
 hc_legend(enabled = FALSE) %>%
 hc_tooltip(pointFormat = "{point.y}%")
+```

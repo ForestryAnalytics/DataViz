@@ -1,4 +1,17 @@
-## ``hc_add_series_scatter`` Shorcut for create scatter plots
+---
+title: "hc_add_series_scatter"
+author: "KevinO'Brien"
+date: "12 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
+
 
 #### Description 
 
@@ -25,24 +38,31 @@ highcharts#series).
 ```{r}
 
 hc <- highchart()
-hc_add_series_scatter(hc,
-hc_add_series_scatter(hc,
-hc_add_series_scatter(hc,
-hc_add_series_scatter(hc,
-hc_add_series_scatter(hc,
-mtcars$wt,
-mtcars$wt,
-mtcars$wt,
-mtcars$wt,
-mtcars$wt,
-mtcars$mpg)
-mtcars$mpg, mtcars$drat)
-mtcars$mpg, mtcars$drat, mtcars$am)
-mtcars$mpg, mtcars$drat, mtcars$qsec)
-mtcars$mpg, mtcars$drat, mtcars$qsec, rownames(mtcars))
+hc_add_series_scatter(hc,mtcars$wt,mtcars$mpg)
+```
+
+```{r}
+hc_add_series_scatter(hc,mtcars$wt,mtcars$mpg, mtcars$drat)
+```
+
+```{r}hc_add_series_scatter(hc,mtcars$wt,mtcars$mpg, mtcars$drat, mtcars$am)
+```
+
+```{r}
+hc_add_series_scatter(hc,mtcars$wt,mtcars$mpg, mtcars$drat, mtcars$qsec)
+hc_add_series_scatter(hc,mtcars$wt,mtcars$mpg, mtcars$drat, mtcars$qsec, rownames(mtcars))
+
+
+
+```
+
+```{r}
+
+
 # Add named attributes to data (attributes length needs to match number of rows)
 hc_add_series_scatter(hc, mtcars$wt, mtcars$mpg, mtcars$drat, mtcars$qsec,
 name = rownames(mtcars), gear = mtcars$gear) %>%
 hc_tooltip(pointFormat = "<b>{point.name}</b><br/>Gear: {point.gear}")
 ## End(Not run)
 ```
+

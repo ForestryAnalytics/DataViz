@@ -1,26 +1,26 @@
-hc_add_series.numeric ‘hc_add_series‘ for numeric objects
+---
+title: "hc_add_series_flags"
+author: "KevinO'Brien"
+date: "11 October 2018"
+output: html_document
+---
 
-#### Description 
-
-‘hc_add_series‘ for numeric objects
-Usage
-## S3 method for class 'numeric'
-hc_add_series(hc, data, ...)hc_add_series.ts
-25
- #### Arguments 
-
-* ``hc ``: A highchart htmlwidget object.
-data A numeric object
-* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
-
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+library(treemap)
+library(quantmod)
+```
 hc_add_series_flags
 Shorcut for add flags to highstock chart
 
 #### Description 
 
 This function helps to add flags highstock charts created from xts objects.
-Usage
+
+#### Usage
 <pre><code>
 hc_add_series_flags(hc, dates, title = LETTERS[seq(length(dates))],
 text = title, id = NULL, ...)
@@ -29,16 +29,13 @@ text = title, id = NULL, ...)
 #### Arguments 
 
 * ``hc ``: A highchart htmlwidget object.
-* dates Date vector.
-* title A character vector with titles.
-* text A character vector with the 
-
-#### Description 
-.
-id The name of the series to add the flags. A previous series must be added whith
+* ``dates``: Date vector.
+* ``title``: A character vector with titles.
+* ``text``: A character vector with the description.
+* ``id``: The name of the series to add the flags. A previous series must be added whith
 this id.
-... Aditional shared arguments for the *flags* data series (http://api.highcharts.
-com/highstock#plotOptions.flags)
+* ``...``: Additional shared arguments for the *flags* data series 
+(http://api.highcharts.com/highstock#plotOptions.flags)
 
 #### Examples
 ```{r}

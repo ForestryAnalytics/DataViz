@@ -1,0 +1,25 @@
+---
+title: "hc_add_series"
+author: "KevinO'Brien"
+date: "11 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+hc_add_series.numeric ‘hc_add_series‘ for numeric objects
+
+#### Description 
+
+``hc_add_series`` for numeric objects
+Usage
+## S3 method for class 'numeric'
+hc_add_series(hc, data, ...)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+data A numeric object
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+

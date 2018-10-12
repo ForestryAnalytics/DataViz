@@ -1,3 +1,17 @@
+---
+title: "hc_add_series_map"
+author: "KevinO'Brien"
+date: "11 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+library(treemap)
+```
 
 ## ``hc_add_series_map``
 
