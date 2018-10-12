@@ -1,7 +1,3 @@
-
-
-
-
 highcarter-exports
 highcharter exported operators and S3 methods
 
@@ -65,46 +61,8 @@ to highchart.highchartOutput
 Details
 This function creates a Highchart chart using htmlwidgets. The widget can be rendered on HTML
 pages generated from R Markdown, Shiny, or other applications.
-highchartOutput
-Widget output function for use in Shiny
 
-#### Description 
 
-Widget output function for use in Shiny
-Usage
-highchartOutput(outputId, width = "100%", height = "400px")
-highchartOutput2(outputId, width = "100%", height = "400px")
- #### Arguments 
-
-outputId The name of the input.
-width A numeric input in pixels.
-height A numeric input in pixels.
-highcharts_demo
-Chart a demo for testing themes
-
-#### Description 
-
-Chart a demo for testing themes
-Usage
-highcharts_demo()
-Examples
-highcharts_demo()70
-is.hexcolor
-hw_grid
-Lays out highchart widgets into a "grid", similar to grid.arrange
-from gridExtra
-
-#### Description 
-
-Lays out highchart widgets into a "grid", similar to grid.arrange from gridExtra
-Usage
-hw_grid(..., ncol = NULL, rowheight = NULL)
- #### Arguments 
-
-... either individual highchart objects or a mixture of individual highchart ob-
-jects and lists of highchart objects.
-ncol how many columns in the grid
-rowheight Height in px.
 is.hexcolor
 Check if a string vector is in hexadecimal color format
 
