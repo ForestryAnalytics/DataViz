@@ -1,11 +1,22 @@
-plot.gg_vimp
-=============
+---
+title: "ggRandomForest"
+author: "Kevin O'Brien"
+date: "14 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+```
+
 ***Plot a gg_vimp object, extracted variable importance of a rfsrc object***
 
 #### Description
 Plot a gg_vimp object, extracted variable importance of a rfsrc object
 plot.gg_vimp
-Usage
+
+#### Usage
 <pre><code>
 ## S3 method for class 'gg_vimp'
 plot(x, relative, lbls, ...)
@@ -21,49 +32,52 @@ plot(x, relative, lbls, ...)
 
 ### Examples
 ```{r}
--------- iris data
-# rfsrc_iris <- rfsrc(Species ~ ., data = iris)
+
+rfsrc_iris <- rfsrc(Species ~ ., data = iris)
 data(rfsrc_iris, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_iris)
 plot(gg_dta)
 ```
 ```{r} 
 # air quality data
-# rfsrc_airq <- rfsrc(Ozone ~ ., airquality)
+rfsrc_airq <- rfsrc(Ozone ~ ., airquality)
 data(rfsrc_airq, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_airq)
 plot(gg_dta)
 ```
 
-```{r}
+### Boston Housing Example
+<pre><code>
 ## -------- Boston dataprint.gg_minimal_depth
 data(rfsrc_Boston, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_Boston)
 plot(gg_dta)
-```
+</code></pre>
 
 ```{r}
 ## -------- mtcars data
+rfsrc_mtcars <- rfsrc(mpg ~ ., data = mtcars)
 data(rfsrc_mtcars, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_mtcars)
 plot(gg_dta)
 ```
 
-```{r}
-## ------------------------------------------------------------
 ## survival example
-## ------------------------------------------------------------
+
+<pre><code>
 ## -------- veteran data
 data(rfsrc_veteran, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_veteran)
 plot(gg_dta)
-```
-```{r}
+</code></pre>
+  
+<pre><code>
 ## -------- pbc data
 data(rfsrc_pbc, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_pbc)
 plot(gg_dta)
-```
+</code></pre>
+
 
 #### References
 * Breiman L. (2001). Random forests, Machine Learning, 45:5-32.
