@@ -1,13 +1,9 @@
- 
 ggsdc: Visualise seasonal decomposition
 ==============================================
 
 Creates a four-facet plot of seasonal decomposition showing observed, trend, seasonal and random components
 
-
-
-
-Usage
+### Usage
 <pre><code>
 ggsdc(data, mapping, frequency = NULL, method = c("stl", "decompose",
   "seas"), start = NULL, s.window, type = c("additive", "multiplicative"),
