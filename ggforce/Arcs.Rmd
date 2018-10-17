@@ -1,9 +1,13 @@
 ### Arcs
-Arcs are segments of a circle and defined by a centre point, a radius and a start and end angle. In ggforce arcs come in two flavors: arc and arc_bar, where the former draws an arc with a single line and the latter draws it as a polygon that can have a fill and outline. A wedge is a special case of arc_bar where the innermost radius is 0. The most well known use of arcs in plotting is with the much loathed pie chart (and its cousin the donut chart). The reason for all the hatred against pie charts are just and related to the fact that humans are much better at comparing heights than angles. Because of this a bar chart will always communicate your data better than a pie chart. Donut charts are a little better as the hole in the middle forces the eye to compare arc spans rather than angles, but it is still better to use a bar chart. Arcs, being a fundamental visual element, can be used for other things though, such as sunburst plots or annotating radial visualizations.
-As pie charts are most well known, we’ll start by upsetting all visualization expert and produce one:
-# We'll start by defining some dummy data
+* Arcs are segments of a circle and defined by a centre point, a radius and a start and end angle. In ggforce arcs come in two flavors: arc and arc_bar, where the former draws an arc with a single line and the latter draws it as a polygon that can have a fill and outline. 
+* A wedge is a special case of arc_bar where the innermost radius is 0. The most well known use of arcs in plotting is with the much loathed pie chart (and its cousin the donut chart). 
+* The reason for all the hatred against pie charts are just and related to the fact that humans are much better at comparing heights than angles. Because of this a bar chart will always communicate your data better than a pie chart. Donut charts are a little better as the hole in the middle forces the eye to compare arc spans rather than angles, but it is still better to use a bar chart. 
+* Arcs, being a fundamental visual element, can be used for other things though, such as sunburst plots or annotating radial visualizations.
+* As pie charts are most well known, weâ€™ll start by upsetting all visualization expert and produce one:
 
-```
+### Example
+* We'll start by defining some dummy data
+
 ```{r}
 pie <- data.frame(
     state = c('eaten', 'eaten but said you didn\'t', 'cat took it', 
