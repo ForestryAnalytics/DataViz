@@ -1,0 +1,13 @@
+
+## hc_annotationsOptions Setting Annotations Options
+
+#### Description 
+
+Setting Annotations Options
+Usage
+hc_annotationsOptions(hc, ...)
+
+#### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``...``: Options defined in http://www.highcharts.com/plugin-registry/single/17/Annotations.
