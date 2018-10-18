@@ -1,0 +1,16 @@
+hc_elementId
+Setting elementId
+
+#### Description 
+
+Function to modify the id for the container.
+Usage
+hc_elementId(hc, id = NULL)
+ #### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+id A string
+Examples
+hchart(rnorm(10)) %>%
+hc_elementId("newid")46
+hc_legend
