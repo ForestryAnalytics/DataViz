@@ -1,25 +1,26 @@
----
-title: "hc_add_series"
-author: "KevinO'Brien"
-date: "11 October 2018"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-hc_add_series.numeric ‘hc_add_series‘ for numeric objects
+hc_add_series
+Adding and removing series from highchart objects
 
 #### Description 
 
-``hc_add_series`` for numeric objects
-Usage
-## S3 method for class 'numeric'
-hc_add_series(hc, data, ...)
- #### Arguments 
+Adding and removing series from highchart objects
+
+#### Usage 
+<pre><code>
+hc_add_series(hc, data = NULL, ...)
+</code></pre> 
+#### Arguments 
+ 
 
 * ``hc ``: A highchart htmlwidget object.
-data A numeric object
-* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.
+data An R object like numeric, list, ts, xts, etc.
+* ``...``: Arguments defined in http://api.highcharts.com/highcharts#chart.22
+hc_add_series.data.frame
+
+#### Examples 
+```{r}
+highchart() %>%
+hc_add_series(data = abs(rnorm(5)), type = "column") %>%
+hc_add_series(data = purrr::map(0:4, function(x) list(x, x)), type = "scatter", color = "blue")
+```
 
