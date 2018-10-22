@@ -1,0 +1,36 @@
+## ``export_hc``
+
+Function to export js file the configuration options
+
+#### Description 
+
+Function to export js file the configuration options
+
+#### Usage
+<pre><code>
+export_hc(hc, filename = NULL)
+</code></pre>
+
+#### Arguments 
+
+* ``hc``: A  highcarts object
+* ``filename``: A string
+
+#### Examples
+```{r}
+fn <- "function(){
+console.log('Category: ' + this.category);
+alert('Category: ' + this.category);
+}"
+hc <- highcharts_demo() %>%
+  hc_plotOptions(
+    series = list(
+      cursor = "pointer",
+      point = list(
+      events = list(
+        click = JS(fn)
+      )
+    )
+  )
+ )
+```
