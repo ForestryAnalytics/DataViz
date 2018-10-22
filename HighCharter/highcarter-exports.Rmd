@@ -1,0 +1,36 @@
+highcarter-exports
+highcharter exported operators and S3 methods
+
+#### Description 
+
+The following functions are imported and then re-exported from the highcarter package to avoid
+listing the magrittr as Depends of highcarters.68
+highchart2
+highchart
+Create a Highcharts chart widget
+
+#### Description 
+
+This function creates a Highchart chart using htmlwidgets. The widget can be rendered on HTML
+pages generated from R Markdown, Shiny, or other applications.
+Usage
+highchart(hc_opts = list(), theme = getOption("highcharter.theme"),
+type = "chart", width = NULL, height = NULL, elementId = NULL)
+ #### Arguments 
+
+hc_opts
+theme
+type
+width
+height
+elementId
+
+A list object containing options defined as http://api.highcharts.com/
+highcharts.
+A hc_theme class object
+A character value to set if use Highchart, Highstock or Highmap. Options are
+"chart", "stock" and "map".
+A numeric input in pixels.
+A numeric input in pixels.
+Use an explicit element ID for the widget.
+
