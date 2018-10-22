@@ -1,0 +1,13 @@
+## ``hc_rm_series``: Removing series to highchart objects
+
+#### Description 
+
+Removing series to highchart objects
+
+#### Usage
+hc_rm_series(hc, names = NULL)
+
+#### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+* ``names``: The series’s names to delete.
