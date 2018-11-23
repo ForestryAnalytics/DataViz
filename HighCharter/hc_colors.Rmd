@@ -1,0 +1,36 @@
+---
+title: "Ref_11.Rmd"
+author: "Kevin O'Brien"
+date: "12 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## hc_colors
+Adding color options to highchart objects
+
+#### Description 
+
+An array containing the default colors for the chart’s series. When all colors are used, new colors
+are pulled from the start again.
+
+#### Usage
+<pre><code>
+hc_colors(hc, colors)
+</code></pre>
+
+#### Arguments 
+
+* ``hc ``: A highchart htmlwidget object.
+colors A vector of colors.
+
+##### Examples
+```{r}
+library("viridisLite")
+cols <- viridis(3)
+cols <- substr(cols, 0, 7)
+highcharts_demo() %>%
+hc_colors(cols)
+```
