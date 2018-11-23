@@ -1,3 +1,15 @@
+---
+title: "Highcharter"
+author: "Kevin O'Brien"
+date: "12 October 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
 
 ## ``is.hexcolor``: Check if a string vector is in hexadecimal color format
 
@@ -11,8 +23,7 @@ is.hexcolor(x)
 </code></pre>
 
 #### Arguments 
-* x
-A string vectors
+* x: A string vectors
 
 #### Examples
 ```{r}
