@@ -1,12 +1,11 @@
 ---
 title: "hc_legend"
-author: "Kevin O'Brien"
-date: "17 October 2018"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
 ```
 
 Adding legend options to highchart objects
@@ -15,14 +14,18 @@ Adding legend options to highchart objects
 
 Function to modify styles for the box containing the symbol, name and color for each item or point
 item in the chart.
-Usage
+
+#### Usage
+<pre><code>
 hc_legend(hc, ...)
- #### Arguments 
+</code></pre>
+
+#### Arguments 
 
 * ``hc ``: A highchart htmlwidget object.
-... Arguments are defined in http://api.highcharts.com/highcharts#legend.hc_mapNavigation
-47
-Examples
+... Arguments are defined in http://api.highcharts.com/highcharts#legend.hc_mapNavigation47
+
+#### Examples
 ```{r}
 data(citytemp)
 highchart() %>%

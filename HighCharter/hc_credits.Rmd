@@ -1,5 +1,13 @@
+---
+title: "``hc_credits``: Adding credits options to highchart objects"
+output: html_document
+---
 
-## ``hc_credits``: Adding credits options to highchart objects
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
+ 
 
 #### Description 
 

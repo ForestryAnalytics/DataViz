@@ -1,6 +1,15 @@
-## ``export_hc``
+---
+title: "``export_hc``"
+output: html_document
+---
 
-Function to export js file the configuration options
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
+ 
+ 
+## Function to export js file the configuration options
 
 #### Description 
 

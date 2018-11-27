@@ -1,7 +1,12 @@
+---
+title: "``hc_defs``: Adding patterns to be used in highcharts series"
+output: html_document
+---
 
-## ``hc_defs``
-
-Adding patterns to be used in highcharts series
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
 
 #### Description 
 
