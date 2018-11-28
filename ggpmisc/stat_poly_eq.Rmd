@@ -47,34 +47,6 @@ shouldn’t inherit behaviour from the default plot specification, e.g. borders.
 * ``...``:   Other arguments passed on to layer. This can include aesthetics whose values
 you want to set, not map. See layer for more details..
 
-### Details
-This stat can be used to automatically annotate a plot with R^2, adjusted R^2 or the fitted model
-equation. It supports only linear models fitted with function lm(). The R^2 and adjusted R^2 annotations
-can be used with any linear model formula. The fitted equation label is correctly generated
-for polynomials or quasi-polynomials through the origin. Model formulas can use poly() or be
-defined algebraically with terms of powers of increasing magnitude with no missing intermediate
-terms, except possibly for the intercept indicated by "- 1" or "-1" in the formula. The validity of the
-formula is not checked in the current implementation, and for this reason the default aesthetics sets
-R^2 as label for the annotation. This stat only generates the label, the predicted values need to be
-separately added to the plot, so to make sure that the same model formula is used in all steps it is
-best to save the formula as an object and supply this object as argument to the different statistics.
-
-#### Aesthetics
-stat_poly_eq understands x and y, to be referenced in the formula and weight passed as argument
-to parameter weights of lm(). All three must be mappeed to numeric variables. In addition the
-aesthetics undertood by the geom used ("text" by default) are understood and grouping respected.
-
-####Computed variables
-
-x x position for left edge
-y y position near upper edge
-eq.label equation for the fitted polynomial as a character string to be parsed
-rr.label R2 of the fitted model as a character string to be parsed
-adj.rr.label Adjusted R2 of the fitted model as a character string to be parsed
-AIC.label AIC for the fitted model.
-BIC.label BIC for the fitted model.
-hjust Set to zero to override the default of the "text" geom.
-
 
 ### Examples 
 ```{r}
@@ -141,6 +113,36 @@ For backward compatibility a logical is accepted as argument for eq.with.lhs, gi
 output than the current default character value. By default "x" is retained as independent variable as
 this is the name of the aesthetic. However, it can be substituted by providing a suitable replacement
 character string through eq.x.rhs.
+
+
+### Details
+This stat can be used to automatically annotate a plot with R^2, adjusted R^2 or the fitted model
+equation. It supports only linear models fitted with function lm(). The R^2 and adjusted R^2 annotations
+can be used with any linear model formula. The fitted equation label is correctly generated
+for polynomials or quasi-polynomials through the origin. Model formulas can use poly() or be
+defined algebraically with terms of powers of increasing magnitude with no missing intermediate
+terms, except possibly for the intercept indicated by "- 1" or "-1" in the formula. The validity of the
+formula is not checked in the current implementation, and for this reason the default aesthetics sets
+R^2 as label for the annotation. This stat only generates the label, the predicted values need to be
+separately added to the plot, so to make sure that the same model formula is used in all steps it is
+best to save the formula as an object and supply this object as argument to the different statistics.
+
+#### Aesthetics
+stat_poly_eq understands x and y, to be referenced in the formula and weight passed as argument
+to parameter weights of lm(). All three must be mappeed to numeric variables. In addition the
+aesthetics undertood by the geom used ("text" by default) are understood and grouping respected.
+
+#### Computed variables
+
+* x x position for left edge
+* y y position near upper edge
+* eq.label equation for the fitted polynomial as a character string to be parsed
+* rr.label R2 of the fitted model as a character string to be parsed
+* adj.rr.label Adjusted R2 of the fitted model as a character string to be parsed
+* AIC.label AIC for the fitted model.
+* BIC.label BIC for the fitted model.
+* hjust Set to zero to override the default of the "text" geom.
+
 #### References
 Written as an answer to a question at Stackoverflow. https://stackoverflow.com/questions/
 7549694/adding-regression-line-equation-and-r2-on-graph

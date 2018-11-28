@@ -9,6 +9,7 @@ as segments.
 stat_fit_deviations(mapping = NULL, data = NULL, geom = "segment",
 method = "lm", formula = NULL, position = "identity", na.rm = FALSE,
 show.legend = FALSE, inherit.aes = TRUE, ...)
+</code></pre>
 
 ### Arguments
 
@@ -28,6 +29,25 @@ is most useful for helper functions that define both data and aesthetics and sho
 not inherit behaviour from the default plot specification, e.g. borders.
 * ``...``:   Other arguments passed on to layer. This can include aesthetics whose values
 you want to set, not map. See layer for more details..
+
+
+### Examples 
+```{r} 
+library(ggplot2)
+# generate artificial data
+set.seed(4321)
+x <- 1:100
+y <- (x + x^2 + x^3) + rnorm(length(x), mean = 0, sd = mean(x^3) / 4)
+my.data <- data.frame(x, y, group = c("A", "B"), y2 = y * c(0.5,2))
+# give a name to a formula
+my.formula <- y ~ poly(x, 3, raw = TRUE)
+# plot
+ggplot(my.data, aes(x, y)) +
+geom_smooth(method = "lm", formula = my.formula) +
+stat_fit_deviations(formula = my.formula, color = "red") +
+geom_point()
+```
+
 ### Details
 This stat can be used to automatically show residuals as segments in a plot of a fitted model equation.
 At the moment it supports only linear models fitted with function lm(). This stat only generates the
@@ -45,19 +65,3 @@ y1 y coordinates of observations
 y2 y coordinates of fitted values
 Note
 For linear models x1 is equal to x2.
-
-### Examples 
-```{r} 
-library(ggplot2)
-# generate artificial data
-set.seed(4321)
-x <- 1:100
-y <- (x + x^2 + x^3) + rnorm(length(x), mean = 0, sd = mean(x^3) / 4)
-my.data <- data.frame(x, y, group = c("A", "B"), y2 = y * c(0.5,2))
-# give a name to a formula
-my.formula <- y ~ poly(x, 3, raw = TRUE)
-# plot
-ggplot(my.data, aes(x, y)) +
-geom_smooth(method = "lm", formula = my.formula) +
-stat_fit_deviations(formula = my.formula, color = "red") +
-geom_point()
