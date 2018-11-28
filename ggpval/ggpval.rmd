@@ -1,5 +1,14 @@
-ggpval
-===============================
+---
+title: "``ggpval``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+#library(ggpval)
+```
+
 ggpval allows you to perform statistic tests and add the corresponding p-values to ggplots automatically. 
 P-values can be presented numerically or as stars. 
 Alternatively, one can also make any text annotation between groups.
