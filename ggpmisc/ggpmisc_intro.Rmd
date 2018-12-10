@@ -1,41 +1,30 @@
 ##  ggpmisc: Miscellaneous Extensions to ’ggplot2’
 ### Description
-Extensions to ’ggplot2’ respecting the grammar of graphics paradigm. Specialization of method ggplot():
-accept and convert on the fly time series data. Geom: "table", adds tables to plots. Statistics:
-locate and tag peaks and valleys in 2D plots; count observations in different quadrants of a plot;
-select observations based on 2D density; label with the equation of a polynomial fitted with lm()
-or other types of models; labels with P-value, R^2 or adjusted R^2 or information criteria for fitted
-models; label with ANOVA table for fitted models; label with summary for fitted models. Model fit
-classes for which suitable methods are provided by package ’broom’ are supported.
+Extensions to ’ggplot2’ respecting the grammar of graphics paradigm. Specialization of method ggplot(): accept and convert on the fly time series data. Geom: "table", adds tables to plots. Statistics: locate and tag peaks and valleys in 2D plots; count observations in different quadrants of a plot; select observations based on 2D density; label with the equation of a polynomial fitted with lm() or other types of models; labels with P-value, R^2 or adjusted R^2 or information criteria for fitted models; label with ANOVA table for fitted models; label with summary for fitted models. Model fit classes for which suitable methods are provided by package ’broom’ are supported.
 
 ### Details
-The new facilities for cleanly defining new stats and geoms added to ’ggplot2’ in version 2.0.0 and
-the support for nested tibbles and new syntax for mapping computed values to aesthetics added to
-’ggplot2’ in version 3.0.0 are used in this package’s code. This means that ’ggpmisc’ (>= 0.3.0)
-requires version 3.0.0 or later of ggplot2 while ’ggpmisc’ (< 0.3.0) requires version 2.0.0 or later of
+The new facilities for cleanly defining new stats and geoms added to ’ggplot2’ in version 2.0.0 and the support for nested tibbles and new syntax for mapping computed values to aesthetics added to ’ggplot2’ in version 3.0.0 are used in this package’s code. This means that ’ggpmisc’ (>= 0.3.0) requires version 3.0.0 or later of ggplot2 while ’ggpmisc’ (< 0.3.0) requires version 2.0.0 or later of
 ggplot2.
 
 #### Extensions provided:
 *  Function for conversion of time series data into tibbles that can be plotted with ggplot.
 *  ggplot() method for time series data.
 *  Stats for locating and tagging "peaks" and "valleys" (local or global maxima and minima).
-*  Stat for generating labels from a lm() model fit, including formatted equation. By default
-labels are expressions but tikz device is supported optionally with LaTeX formatted labels.
+*  Stat for generating labels from a lm() model fit, including formatted equation. By default labels are expressions but tikz device is supported optionally with LaTeX formatted labels.
 *  Stats for extracting information from a any model fit supported by package ’broom’.
-*  Stats for filtering-out/filtering-in observations in regions of a panel or group where the density
-of observations is high.
+*  Stats for filtering-out/filtering-in observations in regions of a panel or group where the density of observations is high.
 *  Geom for annotating plots with tables.
-The stats for peaks and valleys are coded so as to work correctly both with numeric and POSIXct
-variables mapped to the x aesthetic. Special handling was needed as text labels are generated from
-the data.
-Warning!
-geom_null(), stat_debug_group(), stat_debug_panel(), geom_debug(), append_layers(),
-bottom_layer(), delete_layers(), extract_layers(), move_layers(), num_layesr(), shift_layers(),
-top_layer() and which_layers() have been moved from package ’ggpmisc’ into their own seperate
-package ’gginnards-package.
-Acknowledgements
+
+The stats for peaks and valleys are coded so as to work correctly both with numeric and POSIXct variables mapped to the x aesthetic. Special handling was needed as text labels are generated from the data.
+
+#### Warning!
+
+geom_null(), stat_debug_group(), stat_debug_panel(), geom_debug(), append_layers(), bottom_layer(), delete_layers(), extract_layers(), move_layers(), num_layesr(), shift_layers(), top_layer() and which_layers() have been moved from package ’ggpmisc’ into their own seperate package ’gginnards-package.
+
+#### Acknowledgements
 We thank Kamil Slowikowski not only for contributing ideas and code 
-### Examples 
+
+#### Examples 
 ```{r}  to this package but
 also for adding new features to his package ’ggrepel’ that allow new use cases for stat_dens2d_labels
 from this package.
