@@ -5,28 +5,32 @@ Post process for fortify. Based on ggplot2::qplot
 Post process for fortify. Based on ggplot2::qplot
 
 #### Usage 
- <pre><code>
+<pre><code>
 post_autoplot(p, xlim = c(NA, NA), ylim = c(NA, NA), log = "",
 main = NULL, xlab = NULL, ylab = NULL, asp = NULL)
+</code></pre>
 
 #### Arguments 
  
-p ggplot2::ggplot instances
-xlim limits for x axis
-ylim limits for y axis
-log which variables to log transform ("x", "y", or "xy")
-main character vector or expression for plot title
-xlab character vector or expression for x axis label
-ylab character vector or expression for y axis label
-asp the y/x aspect ratio
+* ``	p 	``: 	ggplot2::ggplot instances
+* ``	xlim 	``: 	limits for x axis
+* ``	ylim	``: 	limits for y axis
+* ``	log 	``: 	which variables to log transform ("x", "y", or "xy") main character vector or expression for plot title
+* ``	xlab 	``: 	character vector or expression for x axis label
+* ``	ylab 	``: 	character vector or expression for y axis label
+* ``	asp 	``: 	the y/x aspect ratio
+
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 p <- qplot(Petal.Length, Petal.Width, data = iris)
 ggfortify:::post_autoplot(p, xlim = c(1, 5), ylim = c(1, 5), log = 'xy', main = 'title',
 xlab = 'x', ylab = 'y', asp = 1.5)
+```
+
 post_fortify
 Post process for fortify.
 
@@ -36,8 +40,9 @@ Post process for fortify.
 
 #### Usage 
  <pre><code>
-post_fortify(data, klass = NULL)print,ggmultiplot-method
-73
+post_fortify(data, klass = NULL)
+</code></pre>
+
 
 #### Arguments 
  
@@ -47,7 +52,9 @@ data.frame
 instance to be added as base_class attr, should be original model before fortified
 Value
 data.frame
-print,ggmultiplot-method
+
+
+## print,ggmultiplot-method
 Generic print function for ggmultiplot
 
 #### Description 
@@ -55,9 +62,10 @@ Generic print function for ggmultiplot
 Generic print function for ggmultiplot
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S4 method for signature 'ggmultiplot'
 print(x)
+</code></pre>
 
 #### Arguments 
  
@@ -78,26 +86,20 @@ data.name = "Data")
 
 #### Arguments 
  
-data
-original
-ts.connect
-index.name
-data.name
-Predicted/forecasted ts instance
-Original ts instance
-Logical frag indicates whether connects original time-series and predicted val-
-ues
-Specify column name for time series index
-Specify column name for univariate time series data. Ignored in multivariate
-time series.74
-show,ggmultiplot-method
+* ``	data	``: 	Original ts instance
+* ``	original	``: 	Logical frag indicates whether connects original time-series and predicted vaues-
+* ``	ts.connect	``: 	Specify column name for time series index
+* ``	index.name	``: 	Specify column name for univariate time series data. Ignored in multivariate
+* ``	data.name	``: 	Predicted/forecasted ts instance time series.
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 predicted <- predict(stats::HoltWinters(UKgas), n.ahead = 5, prediction.interval = TRUE)
 rbind_ts(predicted, UKgas, ts.connect = TRUE)
+```
+
 residuals.ar
 Calcurate residuals for stats::ar
 
@@ -106,9 +108,10 @@ Calcurate residuals for stats::ar
 Calcurate residuals for stats::ar
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'ar'
 residuals(object, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -118,10 +121,9 @@ Value
 ts Residuals extracted from the object object.
 
 #### Examples 
-
-residuals(ar(WWW
-#### Usage 
- <pre><code>))
+```{r}
+residuals(ar(WWWUsage ))
+```
 show,ggmultiplot-method
 Generic show function for ggmultiplot
 
@@ -132,31 +134,34 @@ Generic show function for ggmultiplot
 #### Usage 
  <pre><code>
 ## S4 method for signature 'ggmultiplot'
-show(object)support_autoplot
-75
+show(object)
+</code></pre>
 
 #### Arguments 
  
-object
-ggmultiplot
-support_autoplot
-Check if passed object is supported by ggplot2::autoplot
+object: ggmultiplot
+support_autoplot: Check if passed object is supported by ggplot2::autoplot
 
 #### Description 
  
 Check if passed object is supported by ggplot2::autoplot
 
 #### Usage 
- <pre><code>
+<pre><code>
 support_autoplot(obj)
+</code></pre>
+
 
 #### Arguments 
  
 obj
 object
+
 Value
 logical
+
 unscale
+
 Backtransform scale-ed object
 
 #### Description 
@@ -164,21 +169,18 @@ Backtransform scale-ed object
 Backtransform scale-ed object
 
 #### Usage 
- <pre><code>
+<pre><code>
 unscale(data, center = NULL, scale = NULL)
+</code></pre>
 
 #### Arguments 
  
-data
-center
-scale
-Scaled data
-Centered vector
-Scale vector
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 df <- iris[-5]
 ggfortify::unscale(base::scale(df))
+```

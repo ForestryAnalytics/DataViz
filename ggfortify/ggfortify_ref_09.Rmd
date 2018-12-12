@@ -1,3 +1,13 @@
+---
+title: "ggfortify"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
+
 autoplot.stepfun
 
 autoplot.varprd
@@ -8,7 +18,7 @@ Autoplot vars::varprd
 Autoplot vars::varprd
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'varprd'
 autoplot(object, is.date = NULL, ts.connect = TRUE,
 scales = "free_y", predict.geom = "line", predict.colour = "#0000FF",
@@ -16,6 +26,7 @@ predict.size = NULL, predict.linetype = NULL, predict.alpha = NULL,
 predict.fill = NULL, predict.shape = NULL, conf.int = TRUE,
 conf.int.colour = "#0000FF", conf.int.linetype = "none",
 conf.int.fill = "#000000", conf.int.alpha = 0.3, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -51,11 +62,12 @@ Value
 ggplot
 
 #### Examples 
-
+```{r}
 data(Canada, package = 'vars')
 d.var <- vars::VAR(Canada, p = 3, type = 'const')
 autoplot(stats::predict(d.var, n.ahead = 50), is.date = TRUE)
 autoplot(stats::predict(d.var, n.ahead = 50), conf.int = FALSE)
+```
 cbind_wraps
 Wrapper for cbind
 
@@ -66,7 +78,7 @@ Wrapper for cbind
 #### Usage 
  <pre><code>
 cbind_wraps(df1, df2)
-
+</code></pre>
 #### Arguments 
  
 df1 1st data
@@ -76,8 +88,10 @@ Value
 list
 
 #### Examples 
-
+```{r}
 ggfortify:::cbind_wraps(iris[1:2], iris[3:5])
+```
+
 check_names
 Check data names are equal with expected
 
@@ -86,8 +100,9 @@ Check data names are equal with expected
 Check data names are equal with expected
 
 #### Usage 
- <pre><code>
+<pre><code>
 check_names(data, expected)
+</code></pre>
 
 #### Arguments 
  
@@ -103,24 +118,27 @@ Calcurate confidence interval for stats::acf
 Calcurate confidence interval for stats::acf
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'acf'
 confint(x, ci = 0.95, ci.type = "white")
+</code></pre>
 
 #### Arguments 
  
-x stats::acf instance
-ci Float value for confidence interval
-ci.type "white" or "ma"deprecate.warning
-37
+* x stats::acf instance
+* ci Float value for confidence interval
+* ci.type "white" or "ma"
+
 Value
 vector
 
 #### Examples 
-
+```{r}
 air.acf <- acf(AirPassengers, plot = FALSE)
 ggfortify:::confint.acf(air.acf)
 ggfortify:::confint.acf(air.acf, ci.type = 'ma')
+```
+
 deprecate.warning
 Show deprecate warning
 
@@ -129,17 +147,20 @@ Show deprecate warning
 Show deprecate warning
 
 #### Usage 
- <pre><code>
+<pre><code>
 deprecate.warning(old.kw, new.kw)
+</code></pre>
 
 #### Arguments 
- 
-old.kw Keyword being deprecated
-new.kw Keyword being replaced
+
+* old.kw Keyword being deprecated
+* ew.kw Keyword being replaced
 
 #### Examples 
-
+```{r}
 ggfortify:::deprecate.warning('old', 'new')
+```
+
 fitted.ar
 Calcurate fitted values for stats::ar
 
@@ -148,9 +169,10 @@ Calcurate fitted values for stats::ar
 Calcurate fitted values for stats::ar
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'ar'
 fitted(object, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -162,9 +184,7 @@ ts An time series of the one-step forecasts
 
 #### Examples 
 
-fitted(ar(WWW
-#### Usage 
- <pre><code>))
+fitted(ar(WWWUsage ))
 flatten
 Flatten dataframe contains matrix
 
@@ -173,8 +193,9 @@ Flatten dataframe contains matrix
 tains list or matrix as column
 
 #### Usage 
- <pre><code>
+<pre><code>
 flatten(df)
+</code><pre>
 
 #### Arguments 
  
@@ -188,28 +209,31 @@ Convert survival::aareg to data.frame
 Convert survival::aareg to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'aareg'
 fortify(model, data = NULL, maxtime = NULL,
 surv.connect = TRUE, melt = FALSE, ...)
+</code></pre>
 
 #### Arguments 
  
-model survival::aareg instance
-data original dataset, if needed
-maxtime truncate the input to the model at time "maxtime"
-surv.connect logical frag indicates whether connects survival curve to the origin
-melt Logical flag indicating whether to melt each timeseries as variable
-* ``... ``: other arguments passed to methodsfortify.acf
-39
+* ``model``: survival::aareg instance
+* ``data``: original dataset, if needed
+* ``maxtime``: truncate the input to the model at time "maxtime"
+* ``surv.connect``: logical frag indicates whether connects survival curve to the origin
+* ``melt``: Logical flag indicating whether to melt each timeseries as variable
+* ``... ``: other arguments passed to methods
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 library(survival)
 fortify(aareg(Surv(time, status) ~ age + sex + ph.ecog, data = lung, nmin = 1))
 fortify(aareg(Surv(time, status) ~ age + sex + ph.ecog, data = lung, nmin = 1), melt = TRUE)
+```
+
 fortify.acf
 Convert stats::acf to data.frame
 
@@ -218,29 +242,32 @@ Convert stats::acf to data.frame
 Convert stats::acf to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'acf'
 fortify(model, data = NULL, conf.int = TRUE,
 conf.int.value = 0.95, conf.int.type = "white", ...)
+</code></pre>
 
 #### Arguments 
  
-model stats::acf instance
-data original dataset, if needed
-conf.int Logical flag indicating whether to attach confidence intervals
-conf.int.value Coverage probability for confidence interval
-conf.int.type Type of confidence interval, ’white’ for white noise or ’ma’ MA(k-1) model
+* ``model``: stats::acf instance
+* ``data``: original dataset, if needed
+* ``conf.int``: Logical flag indicating whether to attach confidence intervals
+* ``conf.int.value``: Coverage probability for confidence interval
+* ``conf.int.type``: Type of confidence interval, ’white’ for white noise or ’ma’ MA(k-1) model
 * ``... ``: other arguments passed to methods
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(stats::acf(AirPassengers))
 fortify(stats::pacf(AirPassengers))
 fortify(stats::ccf(AirPassengers, AirPassengers))
-fortify(stats::acf(AirPassengers), conf.int = TRUE)40
-fortify.cpt
+fortify(stats::acf(AirPassengers), conf.int = TRUE)
+
+```
 fortify.basis
 Convert spline basis instances to data.frame
 
@@ -249,30 +276,34 @@ Convert spline basis instances to data.frame
 Convert spline basis instances to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'basis'
 fortify(model, data, n = 256, ...)
+</code></pre>
 
 #### Arguments 
  
-model spline basis object
-data x-values at which to evaluate the splines. Optional. By default, an evenly spaced
-sequence of 256 values covering the range of the splines will be used.
-n If data is not provided, instead use an evenly-spaced sequence of x-values of
-this length (plus one, since both endpoints are included). If data is provided, this
-argument is ignored.
+* ``model``: spline basis object
+* ``data``: x-values at which to evaluate the splines. Optional. By default, an evenly spaced sequence of 256 values covering the range of the splines will be used.
+* ``n``: If data is not provided, instead use an evenly-spaced sequence of x-values of this length (plus one, since both endpoints are included). If data is provided, this argument is ignored.
 * ``... ``: other arguments passed to methods
+
+
 Value
 data.frame with 3 columns: Spline (character), x (numeric), and y (numeric); giving the interpolated
 x and y values for each of the splines in the basis.
 
 #### Examples 
-
+```{r}
 library(splines)
 x <- seq(0, 1, by=0.001)
 spl <- bs(x, df=6)
 fortify(spl)
-fortify.cpt
+
+```
+
+
+## fortify.cpt
 Convert changepoint::cpt and strucchange::breakpoints to
 data.frame
 
@@ -281,29 +312,24 @@ data.frame
 Convert changepoint::cpt and strucchange::breakpoints to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'cpt'
-fortify(model, data = NULL, is.date = NULL, ...)fortify.cv.glmnet
-41
+fortify(model, data = NULL, is.date = NULL, ...)
+</code></pre>
+
 
 #### Arguments 
  
-model
-data
-is.date
-...
-chantepoint::cpt or strucchange::breakpoints instance
-original dataset, if needed
-Logical frag indicates whether the stats::ts is date or not. If not provided,
-regard the input as date when the frequency is 4 or 12.
-other 
-#### Arguments 
-  passed to methods
+* ``	model	``: 	chantepoint::cpt or strucchange::breakpoints instance
+* ``	data	``: 	original dataset, if needed
+* ``	is.date	``: 	Logical frag indicates whether the stats::ts is date or not. If not provided, regard the input as date when the frequency is 4 or 12.
+* ``	...	``: 	other arguments   passed to methods
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 library(changepoint)
 fortify(cpt.mean(AirPassengers))
 fortify(cpt.var(AirPassengers))
@@ -313,6 +339,8 @@ bp.nile <- breakpoints(Nile ~ 1)
 fortify(bp.nile)
 fortify(breakpoints(bp.nile, breaks = 2))
 fortify(breakpoints(bp.nile, breaks = 2), data = Nile)
+```
+
 fortify.cv.glmnet
 Convert glmnet::cv.glmnet to data.frame
 
@@ -321,27 +349,26 @@ Convert glmnet::cv.glmnet to data.frame
 Convert glmnet::cv.glmnet to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'cv.glmnet'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
-model
-data
-...
-glmnet::cv.glmnet instance
-original dataset, if needed
-other 
-#### Arguments 
-  passed to methods
+* ``	model	``: 	glmnet::cv.glmnet instance
+* ``	data	``: 	original dataset, if needed
+* ``	...	``: 	other arguments passed to methods
+
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(glmnet::cv.glmnet(data.matrix(Orange[-3]), data.matrix(Orange[3])))42
 fortify.dist
+```
+
 fortify.density
 Convert stats::density to data.frame
 
@@ -350,21 +377,24 @@ Convert stats::density to data.frame
 Convert stats::density to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'density'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
-model stats::density instance
-data original dataset, if needed
+* ``model``: stats::density instance
+* ``data``: original dataset, if needed
 * ``... ``: other arguments passed to methods
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(stats::density(stats::rnorm(1:50)))
+
+```
 fortify.dist
 Convert stats::dist to data.frame
 
@@ -373,9 +403,10 @@ Convert stats::dist to data.frame
 Convert stats::dist to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'dist'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -387,8 +418,10 @@ Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(eurodist)
+```
+
 fortify.ets
 Convert forecast::bats and forecast::ets to data.frame
 
@@ -397,24 +430,28 @@ Convert forecast::bats and forecast::ets to data.frame
 Convert forecast::bats and forecast::ets to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'ets'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
-model forecast::bats or forecast::ets instance
-data original dataset, if needed
+* model forecast::bats or forecast::ets instance
+* data original dataset, if needed
 * ``... ``: other arguments passed to methods
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 ## Not run:
 fortify(forecast::bats(UKgas))
 fortify(forecast::ets(UKgas))
 ## End(Not run)44
+
+```
+
 fortify.forecast
 fortify.factanal
 Convert stats::factanal to data.frame
@@ -437,10 +474,12 @@ Value
 data.frame
 
 #### Examples 
-
+```{r}
 d.factanal <- stats::factanal(state.x77, factors = 3, scores = 'regression')
 fortify(d.factanal)
 fortify(d.factanal, data = state.x77)
+```
+
 fortify.forecast
 Convert forecast::forecast to data.frame
 
@@ -449,27 +488,28 @@ Convert forecast::forecast to data.frame
 Convert forecast::forecast to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'forecast'
 fortify(model, data = NULL, is.date = NULL,
-ts.connect = FALSE, ...)fortify.glmnet
-45
+ts.connect = FALSE, ...)
+</code></pre>
 
 #### Arguments 
  
-model forecast::forecast instance
-data original dataset, if needed
-is.date Logical frag indicates whether the stats::ts is date or not. If not provided,
+* ``model``: forecast::forecast instance
+* ``data``: original dataset, if needed
+* ``is.date``: Logical frag indicates whether the stats::ts is date or not. If not provided,
 regard the input as date when the frequency is 4 or 12.
-ts.connect Logical frag indicates whether connects original time-series and predicted val-
+* ``ts.connect Logical frag indicates whether connects original time-series and predicted val-
 ues
 * ``... ``: other arguments passed to methods
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 d.arima <- forecast::auto.arima(AirPassengers)
 d.forecast <- forecast::forecast(d.arima, level = c(95), h = 50)
 fortify(d.forecast)
 fortify(d.forecast, ts.connect = TRUE)
+```

@@ -1,4 +1,13 @@
-54
+---
+title: "ggfortify"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
+
 fortify.ts
 fortify.ts
 Convert time-series-like to data.frame

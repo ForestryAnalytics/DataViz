@@ -1,3 +1,12 @@
+---
+title: "ggfortify"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
 fortify.glmnet
 Convert glmnet::glmnet to data.frame
 
@@ -6,9 +15,10 @@ Convert glmnet::glmnet to data.frame
 Convert glmnet::glmnet to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'glmnet'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -19,9 +29,10 @@ Value
 data.frame
 
 #### Examples 
+```{r}
+fortify(glmnet::glmnet(data.matrix(Orange[-3]), data.matrix(Orange[3])))
+```
 
-fortify(glmnet::glmnet(data.matrix(Orange[-3]), data.matrix(Orange[3])))46
-fortify.lfda
 fortify.kmeans
 Convert cluster instances to data.frame
 
@@ -30,9 +41,10 @@ Convert cluster instances to data.frame
 Convert cluster instances to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'kmeans'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -41,19 +53,20 @@ data
 ...
 Clustered instance
 original dataset, if needed
-other 
-#### Arguments 
-  passed to methods
+other arguments passed to methods
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(stats::kmeans(iris[-5], 3))
 fortify(stats::kmeans(iris[-5], 3), data = iris)
 fortify(cluster::clara(iris[-5], 3))
 fortify(cluster::fanny(iris[-5], 3))
 fortify(cluster::pam(iris[-5], 3), data = iris)
+```
+
+
 fortify.lfda
 Convert lfda::lfda or lfda::klfda or lfda::self to data.frame
 
@@ -65,6 +78,7 @@ Convert lfda::lfda or lfda::klfda or lfda::self to data.frame
  <pre><code>
 ## S3 method for class 'lfda'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -73,19 +87,19 @@ data
 ...
 lfda::lfda or lfda::klfda or lfda::self instance
 original dataset, if needed
-other 
-#### Arguments 
-  passed to methodsfortify.list
-47
+other arguments 
+  passed to methods
+  
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 ## Not run:
 model <- lfda::lfda(iris[, -5], iris[, 5], 3, metric = "plain")
 fortify(model)
 ## End(Not run)
+```
 fortify.list
 Convert list to data.frame
 
@@ -97,11 +111,12 @@ Convert list to data.frame
  <pre><code>
 ## S3 method for class 'list'
 fortify(model, data = NULL, ...)
+</code></pre>
 
 #### Arguments 
  
-model list instance
-data original dataset, if needed
+* model list instance
+* data original dataset, if needed
 * ``... ``: other arguments passed to methods
 Value
 data.frame
@@ -115,8 +130,9 @@ Different from as.data.frame
 #### Usage 
  <pre><code>
 ## S3 method for class 'matrix'
-fortify(model, data = NULL, compat = FALSE, ...)48
-fortify.MSM.lm
+fortify(model, data = NULL, compat = FALSE, ...)
+</code></pre>
+
 
 #### Arguments 
  
@@ -127,8 +143,8 @@ compat
 base::matrix instance
 original dataset, if needed
 Logical frag to specify the behaviour when converting matrix which has no col-
-umn name. If FALSE, result has character columns like c(’1’, ’2’, ...). If TRUE,
-result has character columns like c(’V1’, ’V2’, ...).
+umn name. If FALSE, result has character columns like c("1", "2", ...). If TRUE,
+result has character columns like c("V1", "V2", ...).
 other 
 #### Arguments 
   passed to methods
@@ -136,8 +152,10 @@ Value
 data.frame
 
 #### Examples 
-
+```{r}
 fortify(matrix(1:6, nrow=2, ncol=3))
+```
+
 fortify.MSM.lm
 Convert MSwM::MSM.lm to data.frame
 
@@ -146,9 +164,10 @@ Convert MSwM::MSM.lm to data.frame
 Convert MSwM::MSM.lm to data.frame
 
 #### Usage 
- <pre><code>
+<pre><code>
 ## S3 method for class 'MSM.lm'
 fortify(model, data = NULL, melt = FALSE, ...)
+</code></pre>
 
 #### Arguments 
  
@@ -159,17 +178,16 @@ melt
 MSwM::MSM.lm instance
 original dataset, if needed
 Logical flag indicating whether to melt each models
-other 
-#### Arguments 
-  passed to methods
+other arguments passed to methods
 Value
 data.frame
 
 #### Examples 
-
+```{r}
 library(MSwM)
 d <- data.frame(Data = c(rnorm(50, mean = -10), rnorm(50, mean = 10)),
 exog = cos(seq(-pi/2, pi/2, length.out = 100)))
 d.mswm <- MSwM::msmFit(lm(Data ~.-1, data = d), k=2, sw=rep(TRUE, 2),
 control = list(parallelization = FALSE))
 fortify(d.mswm)
+```
