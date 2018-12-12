@@ -3,7 +3,6 @@ plot.gg_vimp Plot a gg_vimp object, extracted variable importance of a rfsrc obj
 #### Description 
 
 Plot a gg_vimp object, extracted variable importance of a rfsrc object
-58 plot.gg_vimp
 #### Usage 
 <pre><code>
 
@@ -12,14 +11,11 @@ plot(x, relative, lbls, ...)
 
 </code></pre>
 #### Arguments
+* x gg_vimp object created from a rfsrc object relative should we plot vimp or relative vimp. Defaults to vimp.
+* lbls A vector of alternative variable labels. Item names should be the same as the variable names.
+* ... optional arguments  passed to gg_vimp if necessary
 
-x gg_vimp object created from a rfsrc object
-relative should we plot vimp or relative vimp. Defaults to vimp.
-lbls A vector of alternative variable labels. Item names should be the same as the
-variable names.
-... optional arguments
- passed to gg_vimp if necessary
-Value
+#### Value
 ggplot object
 
 See Also
