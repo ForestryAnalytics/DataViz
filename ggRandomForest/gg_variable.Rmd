@@ -2,14 +2,9 @@
 gg_variable Marginal variable depedance data object.
 #### Description 
 
-plot.variable generates a data.frame containing the marginal variable dependance or the partial
-variable dependence. The gg_variable function creates a data.frame of containing the full set
-of covariate data (predictor variables) and the predicted response for each observation. Marginal
-dependence figures are created using the plot.gg_variable function.
-Optional 
-</code></pre>
-#### Arguments
- time point (or vector of points) of interest (for survival forests only) time.labels
+plot.variable generates a data.frame containing the marginal variable dependance or the partial variable dependence. The gg_variable function creates a data.frame of containing the full set of covariate data (predictor variables) and the predicted response for each observation. Marginal dependence figures are created using the plot.gg_variable function.
+
+Optional  Arguments time point (or vector of points) of interest (for survival forests only) time.labels
 If more than one time is specified, a vector of time labels for differentiating the time points (for survival
 forests only) oob indicate if predicted results should include oob or full data set.
 #### Usage 
@@ -86,9 +81,11 @@ plot(gg_dta, xvar="wt")
 plot(gg_dta,xvar=c("disp","hp", "drat", "wt", "qsec"), panel=TRUE)
 plot(gg_dta, xvar=c("cyl", "vs", "am", "gear", "carb"), panel=TRUE, notch=TRUE)
 ## End(Not run)
+```
 ## -------- Boston data
 ## ------------------------------------------------------------
 ## survival #### Examples 
+
 ```{r} 
 
 ## ------------------------------------------------------------
