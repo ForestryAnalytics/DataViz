@@ -1,4 +1,17 @@
-stat_fit_residuals Residuals from a model fit
+---
+title: "``stat_fit_residuals``:  Residuals from a model fit"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggpmisc)
+library(dplyr)
+library(magrittr)
+```
+
+
+
 
 #### Description
 stat_fit_residuals fits a linear model and returns residuals ready to be plotted as points.

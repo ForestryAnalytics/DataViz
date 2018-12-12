@@ -1,4 +1,16 @@
-stat_dens2d_labels Reset labels of observations in high density regions
+---
+title: "``hstat_dens2d_labels``:  Reset labels of observations in high density regions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggpmisc)
+library(dplyr)
+library(magrittr)
+```
+
+
 ### Description
 stat_low_dens Sets labels to NA in regions of a plot panel with high density of observations.
 
