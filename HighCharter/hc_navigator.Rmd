@@ -1,5 +1,5 @@
 ---
-title: "``hc_elementId``: Setting elementId"
+title: "``hc_navigator``"
 output: html_document
 ---
 
@@ -10,24 +10,21 @@ library(dplyr)
 library(magrittr)
 ```
 
-
+### Adding navigator options to highstock charts
 
 #### Description 
 
-Function to modify the id for the container.
+Options regarding the navigator: The miniseries below chart in a highstock chart.
 
 #### Usage
 <pre><code>
-hc_elementId(hc, id = NULL)
+hc_navigator(hc, ...)
 </code></pre>
 
 #### Arguments 
 
 * ``hc ``: A highchart htmlwidget object.
-* ``id``: A string
+* ``...``: Arguments defined in http://api.highcharts.com/highstock#navigator.
 
-#### Examples
-```{r}
-hchart(rnorm(10)) %>%
-hc_elementId("newid")
-```
+
+

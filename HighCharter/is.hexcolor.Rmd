@@ -1,7 +1,5 @@
 ---
-title: "Highcharter"
-author: "Kevin O'Brien"
-date: "12 October 2018"
+title: "``is.hexcolor``: Check if a string vector is in hexadecimal color format"
 output: html_document
 ---
 
@@ -11,7 +9,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(highcharter)
 ```
 
-## ``is.hexcolor``: Check if a string vector is in hexadecimal color format
 
 #### Description 
 

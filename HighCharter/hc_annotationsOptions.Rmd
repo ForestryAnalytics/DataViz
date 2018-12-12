@@ -1,11 +1,24 @@
+---
+title: "``hc_annotationsOptions``: Setting Annotations Options"
+output: html_document
+---
 
-## hc_annotationsOptions Setting Annotations Options
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
 
 #### Description 
 
 Setting Annotations Options
-Usage
+
+#### Usage
+
+<pre><code>
 hc_annotationsOptions(hc, ...)
+</code></pre>
 
 #### Arguments 
 

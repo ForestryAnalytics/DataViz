@@ -1,4 +1,15 @@
-## ``hc_series``: Series options from highchart objects
+---
+title: "``hc_series``: Series options from highchart objects"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
+
 
 #### Description 
 

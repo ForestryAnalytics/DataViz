@@ -1,5 +1,15 @@
-## renderHighchart
-Widget render function for use in Shiny
+---
+title: "``renderHighchart``: Widget render function for use in Shiny"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
+
 
 #### Description 
 
@@ -12,6 +22,6 @@ renderHighchart2(expr, env = parent.frame(), quoted = FALSE)
 </code></pre>
 
 #### Arguments 
-* expr A highchart expression.
-* env A enviorment.
-* quoted A boolean value.
+* ``expr``: A highchart expression.
+* ``env``: A enviorment.
+* ``quoted``: A boolean value.

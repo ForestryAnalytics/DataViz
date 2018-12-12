@@ -1,19 +1,20 @@
 ---
-title: "Ref_11.Rmd"
-author: "Kevin O'Brien"
-date: "12 October 2018"
+title: "``hc_colors``: Adding color options to highchart objects"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
 ```
 ## hc_colors
 Adding color options to highchart objects
 
 #### Description 
 
-An array containing the default colors for the chart’s series. When all colors are used, new colors
+An array containing the default colors for the chart's series. When all colors are used, new colors
 are pulled from the start again.
 
 #### Usage

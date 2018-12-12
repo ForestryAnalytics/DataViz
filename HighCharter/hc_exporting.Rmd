@@ -1,9 +1,22 @@
-hc_exporting
+---
+title: "``hc_exporting``: Exporting options for higcharts objects"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
+
+
+
+
 Exporting options for higcharts objects
 
 #### Description 
 
-Exporting options for higcharts objects. You can define the file’s name or the output format.
+Exporting options for higcharts objects. You can define the file's name or the output format.
 
 #### Usage
 

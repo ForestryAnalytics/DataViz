@@ -1,12 +1,7 @@
 ---
-
-title: "Ref_11.Rmd"
-
+title: "``hc_drilldown``: Drilldown options for higcharts objects"
 output: html_document
-
 ---
-
-
 
 ```{r setup, include=FALSE}
 
@@ -15,7 +10,6 @@ library(highcharter)
 ```
 
 
-## ``hc_drilldown``: Drilldown options for higcharts objects
 
 #### Description 
 
@@ -49,7 +43,9 @@ drilldown = tolower(name)
 )
 
 df
+```
 
+```{r}
 ds <- list_parse(df)
 names(ds) <- NULL
 str(ds)
@@ -69,6 +65,10 @@ hc_add_series(
   colorByPoint = TRUE,
   data = ds
 )
+```
+
+```{r}
+
 
 dfan <- data_frame(
 name = c("Cats", "Dogs", "Cows", "Sheep", "Pigs"),
@@ -99,32 +99,26 @@ x
 })
 
 }
-
+```
+```{r}
 dsan <- second_el_to_numeric(list_parse2(dfan))
 
 dsfru <- second_el_to_numeric(list_parse2(dffru))
 
 dscar <- second_el_to_numeric(list_parse2(dfcar))
+```
 
-hc <- hc %>%
-hc_drilldown(
-allowPointDrilldown = TRUE,
-series = list(
-list( id = "animals",
-      data = dsan ,
-      list( id = "fruits",
-             data = dsfru),
-      list(
-
-id = "cars",
-
-data = dscar
-
+```{r}
+hc <- hc %>% hc_drilldown(
+  allowPointDrilldown = TRUE,
+  series = list(
+     list( id = "animals",data = dsan) ,
+     list( id = "fruits", data = dsfru),
+     list(id = "cars", data = dscar)
+)
 )
 
-)
 
-)
 
 hc
 ```

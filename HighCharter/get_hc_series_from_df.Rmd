@@ -10,8 +10,7 @@ library(highcharter)
  
  
  
-##  Auxiliar function to get series and options from tidy frame for
-hchart.data.frame
+###  Auxiliar function to get series and options from tidy frame for hchart.data.frame
 
 #### Description 
 
@@ -25,9 +24,9 @@ get_hc_series_from_df(data, type = NULL, ...)
 
 #### Arguments 
 
-* data A data.frame object.
-* type The type of chart. Possible values are line, scatter, point, column.
-* ... Aesthetic mappings as x y group color low high.
+* ``data``: A data.frame object.
+* ``type``: The type of chart. Possible values are line, scatter, point, column.
+* ``...``: Aesthetic mappings as x y group color low high.
 
 #### Examples
 <pre><code>

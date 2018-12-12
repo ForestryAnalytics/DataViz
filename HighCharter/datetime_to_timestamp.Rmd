@@ -1,5 +1,5 @@
 ---
-title: "``hc_elementId``: Setting elementId"
+title: "``datetime_to_timestamp``:  Date to Timesstamps"
 output: html_document
 ---
 
@@ -12,22 +12,23 @@ library(magrittr)
 
 
 
+
 #### Description 
 
-Function to modify the id for the container.
+Turn a date time vector to timestamp format
 
 #### Usage
 <pre><code>
-hc_elementId(hc, id = NULL)
+datetime_to_timestamp(dt)
 </code></pre>
 
 #### Arguments 
-
-* ``hc ``: A highchart htmlwidget object.
-* ``id``: A string
+* ``dt``: Date or datetime vector
 
 #### Examples
 ```{r}
-hchart(rnorm(10)) %>%
-hc_elementId("newid")
+datetime_to_timestamp(
+as.Date(c("2015-05-08", "2015-09-12"),Format = "%Y-%m-%d"))
+
 ```
+

@@ -1,7 +1,5 @@
 ---
-title: "hc_colorAxis"
-author: "Kevin O'Brien"
-date: "12 October 2018"
+title: "hc_colorAxis: Adding Color Axis options to highchart objects"
 output: html_document
 ---
 
@@ -12,7 +10,7 @@ library(dplyr)
 library(magrittr)
 ```
 
-Adding Color Axis options to highchart objects
+
 
 #### Description 
 
@@ -36,14 +34,14 @@ ds <- list_parse2(df)
 ```
 ```{r}
 hc <- highchart() %>%
-hc_chart(type = "heatmap") %>%
-hc_title(text = "Simulated values by years and months") %>%
-hc_xAxis(categories = month.abb) %>%
-hc_yAxis(categories = 2016 - nyears + seq(nyears)) %>%
-hc_add_series(name = "value", data = ds)
-hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348")
-hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348",
-type = "logarithmic")
+  hc_chart(type = "heatmap") %>%
+  hc_title(text = "Simulated values by years and months") %>%
+  hc_xAxis(categories = month.abb) %>%
+  hc_yAxis(categories = 2016 - nyears + seq(nyears)) %>%
+  hc_add_series(name = "value", data = ds)
+  hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348")
+  hc_colorAxis(hc, minColor = "#FFFFFF", maxColor = "#434348",
+  type = "logarithmic")
 ```
 
 ```{r}

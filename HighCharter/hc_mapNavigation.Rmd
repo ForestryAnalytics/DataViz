@@ -1,12 +1,11 @@
 ---
 title: "hc_mapNavigation"
-author: "Kevin O'Brien"
-date: "17 October 2018"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
 ```
 
 Adding mapNavigation options to highmaps charts

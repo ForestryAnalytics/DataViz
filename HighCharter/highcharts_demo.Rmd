@@ -1,5 +1,17 @@
-highcharts_demo
-Chart a demo for testing themes
+---
+title: "``highcharts_demo``: Chart a demo for testing themes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
+
+
+
 
 #### Description 
 
@@ -9,6 +21,7 @@ Chart a demo for testing themes
 <pre><code>
 highcharts_demo()
 </code></pre>
+
 #### Examples
 <pre><code>
 highcharts_demo()

@@ -1,7 +1,5 @@
 ---
-title: "hchist: Shorcut to make an histogram"
-author: "Kevin O'Brien"
-date: "12 October 2018"
+title: "``hchist``: Shorcut to make an histogram"
 output: html_document
 ---
 

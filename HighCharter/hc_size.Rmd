@@ -1,7 +1,14 @@
+---
+title: "``hc_size``: Changing the size of a highchart object"
+output: html_document
+---
 
-## ``hc_size``
+```{r setup, include=FALSE}
 
-Changing the size of a highchart object
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+```
+
 
 #### Description 
 
@@ -15,8 +22,8 @@ hc_size(hc, width = NULL, height = NULL)
 #### Arguments 
 
 * ``hc ``: A highchart htmlwidget object.
-* width A numeric input in pixels.
-* height A numeric input in pixels.
+* ``width``: A numeric input in pixels.
+* ``height``: A numeric input in pixels.
 
 #### Examples
 ```{r}
