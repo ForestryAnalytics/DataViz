@@ -1,5 +1,16 @@
-## hcboxplot
-Shortcut to make a boxplot
+---
+title: "``hcboxplot``: Shortcut to make a boxplot"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(highcharter)
+library(dplyr)
+library(magrittr)
+```
+
+
 
 #### Description 
 
