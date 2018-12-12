@@ -12,27 +12,15 @@ plot(x, ...)
 </code></pre>
 #### Arguments
 
-x gg_error object created from a rfsrc object
-... extra 
-</code></pre>
-#### Arguments
- passed to ggplot functions
-plot.gg_error 37
-Details
-The gg_error plot is used to track the convergence of the randomForest. This figure is a reproduction
-of the error plot from the plot.rfsrc function.
-Value
-ggplot object
+* x gg_error object created from a rfsrc object
+* ... extra arguments passed to ggplot functions
 
-See Also
-gg_error rfsrc plot.rfsrc
+
 #### Examples 
 ```{r} 
 
 ## Not run:
-## #### Examples 
-```{r} 
- from RFSRC package...
+## #### Examples from RFSRC package...
 ## ------------------------------------------------------------
 ## classification example
 ## ------------------------------------------------------------
@@ -86,3 +74,14 @@ data(rfsrc_pbc, package="ggRandomForests")
 gg_dta <- gg_error(rfsrc_pbc)
 plot(gg_dta)
 ## End(Not run)
+
+
+#### Details
+The gg_error plot is used to track the convergence of the randomForest. This figure is a reproduction
+of the error plot from the plot.rfsrc function.
+
+#### Value
+ggplot object
+
+See Also
+gg_error rfsrc plot.rfsrc
