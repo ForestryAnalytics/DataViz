@@ -1,5 +1,4 @@
-fortify.basis
-Convert spline basis instances to data.frame
+``fortify.basis``: Convert spline basis instances to data.frame
 
 #### Description 
  
@@ -18,11 +17,6 @@ fortify(model, data, n = 256, ...)
 * ``n``: If data is not provided, instead use an evenly-spaced sequence of x-values of this length (plus one, since both endpoints are included). If data is provided, this argument is ignored.
 * ``... ``: other arguments passed to methods
 
-
-Value
-data.frame with 3 columns: Spline (character), x (numeric), and y (numeric); giving the interpolated
-x and y values for each of the splines in the basis.
-
 #### Examples 
 ```{r}
 library(splines)
@@ -31,5 +25,9 @@ spl <- bs(x, df=6)
 fortify(spl)
 
 ```
+
+
+#### Value
+data.frame with 3 columns: Spline (character), x (numeric), and y (numeric); giving the interpolated x and y values for each of the splines in the basis.
 
 
