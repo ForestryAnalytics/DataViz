@@ -19,18 +19,20 @@ Plot distribution
 <pre><code>
 ggdistribution(func, x, p = NULL, colour = "#000000", linetype = NULL,
 fill = NULL, alpha = NULL, ...)
+</code</pre>
 
 #### Arguments 
  
-func PDF or CDF function
-x Numeric vector to be passed to func
-p ggplot2::ggplot instance to plot
-colour Line colour
-linetype Line type
-fill Fill colour
-alpha Alpha
-... Keywords passed to PDC/CDF func
-Value
+* func PDF or CDF function
+* x Numeric vector to be passed to func
+* p ggplot2::ggplot instance to plot
+* colour Line colour
+* linetype Line type
+* fill Fill colour
+* alpha Alpha
+* ... Keywords passed to PDC/CDF func
+
+#### Value
 ggplot
 
 #### Examples 
@@ -43,7 +45,6 @@ ggdistribution(pchisq, 0:20, p = p, df = 9, fill = 'red')
 
 ggfortify
 ggfortify
-65
 ggfortify
 
 #### Description 
@@ -52,9 +53,7 @@ Define Fortify and Autoplot to Allow ’ggplot2’ to Draw Some Popular Packages
 ggfreqplot
 Plot seasonal subseries
 stats::monthplot
-of
-time
-series,
+of time series,
 generalization
 
 #### Description 
@@ -86,7 +85,7 @@ conf.int.alpha = 0.3, conf.int.value = 0.95, facet.labeller = NULL, ...)
 Value
 ggplot
 Keywords passed to autoplot.ts
-of66
+
 ggmultiplot-class
 
 #### Examples 
@@ -119,17 +118,17 @@ x[[i, j, ...]] <- value
 
 #### Arguments 
  
-x ggmultiplot
-i elements to extract or replace
-j not used
-... not used
-drop not used
-value value to be set
-Slots: plots List of ggplot2::ggplot instances
-ncol Number of grid columns
-nrow Number of grid rowsggtsdiag
+* x ggmultiplot
+* i elements to extract or replace
+* j not used
+* ... not used
+* drop not used
+* value value to be set
+* Slots: plots List of ggplot2::ggplot instances
+* ncol Number of grid columns
+* nrow Number of grid rowsggtsdiag
 
-ggtsdiag
+## ggtsdiag
 67
 Plots time-series diagnostics
 
