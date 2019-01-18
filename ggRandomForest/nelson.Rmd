@@ -11,17 +11,13 @@ nelson(interval, censor, data, by = NULL, weight = NULL, ...)
 </code></pre>
 #### Arguments
 
-* interval name of the interval variable in the training dataset.
-* censor name of the censoring variable in the training dataset.
-* data name of the survival training data.frame by stratifying variable in the training dataset, defaults to NULL
-* weight for each observation (default=NULL)
-* ... arguments passed to the survfit function
+* ``interval``: name of the interval variable in the training dataset.
+* ``censor``: name of the censoring variable in the training dataset.
+* ``data``: name of the survival training data.frame by stratifying variable in the training dataset, defaults to NULL
+* ``weight``: for each observation (default=NULL)
+* ``...``: arguments passed to the survfit function
 
-#### Value
-gg_survival object
-See Also
-gg_survival nelson plot.gg_survival
-partial.rfsrc 33
+
 #### Examples 
 ```{r} 
 
@@ -56,3 +52,8 @@ plot(gg_dta, error="bars")
 plot(gg_dta)
 ## End(Not run)
 ```
+#### Value
+gg_survival object
+See Also
+gg_survival nelson plot.gg_survival
+partial.rfsr 33
