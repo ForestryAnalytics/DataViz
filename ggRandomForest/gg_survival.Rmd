@@ -1,7 +1,5 @@
 ---
 title: "gg_survival Nonparametric survival estimates."
-author: "Kevin O'Brien"
-date: "14 October 2018"
 output: html_document
 ---
 
