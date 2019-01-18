@@ -1,29 +1,22 @@
+##``gg_partial`` Partial variable dependence object
 
-
-gg_partial Partial variable dependence object
 #### Description 
 
-The plot.variable function returns a list of either marginal variable dependance or partial variable
-dependence data from a rfsrc object. The gg_partial function formulates the plot.variable
-output for partial plots (where partial=TRUE) into a data object for creation of partial dependence
-plots using the plot.gg_partial function.
-Partial variable dependence plots are the risk adjusted estimates of the specified response as a function
-of a single covariate, possibly subsetted on other covariates.
-An option named argument can name a column for merging multiple plots together
+The plot.variable function returns a list of either marginal variable dependance or partial variable dependence data from a rfsrc object. The gg_partial function formulates the plot.variable output for partial plots (where partial=TRUE) into a data object for creation of partial dependence plots using the plot.gg_partial function.
+Partial variable dependence plots are the risk adjusted estimates of the specified response as a function of a single covariate, possibly subsetted on other covariates. An option named argument can name a column for merging multiple plots together
+
 #### Usage 
 <pre><code>
 
 gg_partial(object, ...)
 
 </code></pre>
-#### Arguments
 
-object the partial variable dependence data object from plot.variable function
-... optional 
-</code></pre>
 #### Arguments
+* object the partial variable dependence data object from plot.variable function
+* ... optional arguments
 
-Value
+#### Value
 gg_partial object. A data.frame or list of data.frames corresponding the variables contained
 within the plot.variable output.
 
@@ -64,8 +57,9 @@ gg_dta.m <- gg_dta[["Month"]]
 plot(gg_dta.m, notch=TRUE)
 gg_dta[["Month"]] <- NULL
 plot(gg_dta, panel=TRUE)
-## End(Not run)
-## Not run:
+```
+
+```{r}
 ## -------- Boston data
 data(partial_Boston, package="ggRandomForests")
 gg_dta <- gg_partial(partial_Boston)
@@ -86,6 +80,8 @@ plot(gg_dta, panel=TRUE)
 ## End(Not run)
 ## ------------------------------------------------------------
 ## survival #### Examples 
+```
+
 ```{r} 
 
 ## ------------------------------------------------------------
@@ -119,7 +115,9 @@ plot(gg_dta, panel=TRUE)
 gg_dta.cat[["karno"]] <- gg_dta.cat[["diagtime"]] <- gg_dta.cat[["age"]] <- NULL
 plot(gg_dta.cat, panel=TRUE, notch=TRUE)
 ## End(Not run)
-20 gg_partial_coplot.rfsrc
+````
+
+```{r}
 ## Not run:
 ## -------- pbc data
 data("partial_pbc", package = "ggRandomForests")
