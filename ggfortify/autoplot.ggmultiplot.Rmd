@@ -1,7 +1,12 @@
+---
+title: "``ggfortify::autoplot``"
+output: html_document
+---
 
-Autoplot ggmultiplot instances. It returns the passed instance as it
-is.
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
 #### Description 
  
 Autoplot ggmultiplot instances. It returns the passed instance as it is.
