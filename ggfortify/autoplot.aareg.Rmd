@@ -1,3 +1,13 @@
+---
+title: "``ggfortify::autoplot``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
+
 autoplot.aareg Autoplot survival::aareg
 
 #### Description 
