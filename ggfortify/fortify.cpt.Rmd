@@ -1,6 +1,12 @@
-## fortify.cpt
-Convert changepoint::cpt and strucchange::breakpoints to
-data.frame
+---
+title: "``ggfortify::fortify.cpt``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
 
 #### Description 
  
