@@ -1,6 +1,12 @@
-autoplot.kmeans
-Autoplot cluster instances
+---
+title: "``ggfortify::autoplot.kmeans``"
+output: html_document
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
 #### Description 
  
 Autoplot cluster instances
