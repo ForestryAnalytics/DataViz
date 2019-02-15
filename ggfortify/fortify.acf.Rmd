@@ -1,7 +1,12 @@
+---
+title: "``ggfortify::fortify.acf``"
+output: html_document
+---
 
-fortify.acf
-Convert stats::acf to data.frame
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggfortify)
+```
 #### Description 
  
 Convert stats::acf to data.frame
