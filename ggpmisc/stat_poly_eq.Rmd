@@ -1,43 +1,51 @@
 
-stat_poly_eq Equation, p-value, R^2, AIC or BIC of fitted polynomial
+---
+title: "``ggpmisc::stat_poly_eq``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpmisc)
+```
+
+
+Equation, p-value, R^2, AIC or BIC of fitted polynomial
+
 ### Description
-stat_poly_eq fits a polynomial and generates several labels including the equation and/or p-value,
-coefficient of determination (R^2), ’AIC’ or ’BIC’.
+
+stat_poly_eq fits a polynomial and generates several labels including the equation and/or p-value, coefficient of determination (R^2), ’AIC’ or ’BIC’.
 
 
 #### Usage 
- <pre><code>
+<pre><code>
 stat_poly_eq(mapping = NULL, data = NULL, geom = "text", formula = NULL,
 eq.with.lhs = "italic(y)~`=`~", eq.x.rhs = NULL, coef.digits = 3,
 rr.digits = 2, label.x.npc = "left", label.y.npc = "top",
 label.x = NULL, label.y = NULL, output.type = "expression",
 position = "identity", na.rm = FALSE, show.legend = FALSE,
 inherit.aes = TRUE, ...)
+</code></pre>
 
 ### Arguments
 
-* ``mapping``: The aesthetic mapping, usually constructed with aes or aes_. Only needs to be
-set at the layer level if you are overriding the plot defaults.
+* ``mapping``: The aesthetic mapping, usually constructed with aes or aes_. Only needs to be set at the layer level if you are overriding the plot defaults.
 * ``data ``: A layer specific dataset - only needed if you want to override the plot defaults.
 * ``geom``: The geometric object to use display the data
 * ``formula``: a formula object.
 * ``eq.with.lhs``: If character the string is pasted to the front of the equation label before parsing or a logical (see note).
 * ``eq.x.rhs``: character this string will be used as replacement for "x" in the model equation when generating the label before parsing it.
-* ``coef.digits``, ``rr.digits``: integer Number of significant digits to use in for the vector of fitted coefficients
-and for $R^2$ labels.
+* ``coef.digits``, ``rr.digits``: integer Number of significant digits to use in for the vector of fitted coefficients and for $R^2$ labels.
 * ``label.x.npc``,``label.y.npc``: numeric with range 0..1 or character. Coordinates to be used for positioning the
 output, expressed in "normalized parent coordinates" or character string. If too short they will be recycled.
-* ``label.x``, ``label.y``: numeric Coordinates (in data units) to be used for absolute positioning of the
-output. If too short they will be recycled.
+* ``label.x``, ``label.y``: numeric Coordinates (in data units) to be used for absolute positioning of the output. If too short they will be recycled.
 * output.type character One of "expression", "LaTeX" or "text".
 * position The position adjustment to use for overlapping points on this layer
-* na.rm a logical indicating whether NA values should be stripped before the computation
-proceeds.
-* ``show.legend ``: logical. Should this layer be included in the legends? NA, the default, includes if
-any aesthetics are mapped. FALSE never includes, and TRUE always includes.
+* na.rm a logical indicating whether NA values should be stripped before the computation proceeds.
+* ``show.legend ``: logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes.
 * ``inherit.aes``: If FALSE, overrides the default aesthetics, rather than combining with them.
-This is most useful for helper functions that define both data and aesthetics and
-shouldn’t inherit behaviour from the default plot specification, e.g. borders.
+This is most useful for helper functions that define both data and aesthetics and shouldn’t inherit behaviour from the default plot specification, e.g. borders.
 * ``...``:   Other arguments passed on to layer. This can include aesthetics whose values
 you want to set, not map. See layer for more details..
 
