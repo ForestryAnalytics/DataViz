@@ -1,10 +1,24 @@
 
-stat_fit_deviations Residuals from model fit as segments
+---
+title: "``ggpmisc::stat_fit_deviations ``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpmisc)
+```
+
+
+Residuals from model fit as segments
+
 ### Description
+
 ``stat_fit_deviations`` fits a linear model and returns fitted values and residuals ready to be plotted as segments.
 
 #### Usage 
- <pre><code>
+<pre><code>
 stat_fit_deviations(mapping = NULL, data = NULL, geom = "segment",
 method = "lm", formula = NULL, position = "identity", na.rm = FALSE,
 show.legend = FALSE, inherit.aes = TRUE, ...)
