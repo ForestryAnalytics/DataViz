@@ -1,7 +1,20 @@
-stat_fit_tb Model-fit summary or ANOVA
+
+---
+title: "``ggpmisc::stat_fit_tb ``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpmisc)
+```
+
+
+Model-fit summary or ANOVA
 ### Description
-stat_fit_tb fits a model and returns a "tidy" version of the model’s summary or ANOVA table,
-using package ’broom’.
+
+stat_fit_tb fits a model and returns a "tidy" version of the model’s summary or ANOVA table, using package ’broom’.
 
 #### Usage 
 
@@ -24,13 +37,11 @@ geom The geometric object to use display the data method character.
 * tb.type character One of "fit.summary", "fit.anova" or "fit.coefs".
 * tb.vars character vector, optionally named, used to select and or rename the columns of the table returned.
 * digits integer indicating the number of significant digits to be used.
-* label.x.npc, label.y.npc numeric with range 0..1 or character. Coordinates to be used for positioning the
-output, expressed in "normalized parent coordinates" or character string. If too short they will be recycled.
+* label.x.npc, label.y.npc numeric with range 0..1 or character. Coordinates to be used for positioning the output, expressed in "normalized parent coordinates" or character string. If too short they will be recycled.
 * label.x, label.y numeric Coordinates (in data units) to be used for absolute positioning of the output. If too short they will be recycled.
 * ``position``: The position adjustment to use for overlapping points on this layer
 * ``na.rm``: a logical indicating whether NA values should be stripped before the computation proceeds.
-* ``show.legend ``: logical. Should this layer be included in the legends? NA, the default, includes if
-any aesthetics are mapped. FALSE never includes, and TRUE always includes.
+* ``show.legend ``: logical. Should this layer be included in the legends? NA, the default, includes if any aesthetics are mapped. FALSE never includes, and TRUE always includes.
 * inherit.aes If FALSE, overrides the default aesthetics, rather than combining with them.
 This is most useful for helper functions that define both data and aesthetics and shouldn’t inherit behaviour from the default plot specification, e.g. borders.
 * ``...``:   Other arguments passed on to layer. This can include aesthetics whose values
