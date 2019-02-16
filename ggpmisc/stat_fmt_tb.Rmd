@@ -1,4 +1,16 @@
-stat_fmt_tb Select and slice a tibble nested in data
+
+---
+title: "``ggpmisc::stat_fmt_tb``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpmisc)
+```
+
+Select and slice a tibble nested in data
 
 ### Description
 stat_partial_tb selects columns and/or remanes them and/or slices rows from a tible nested in data. This stat is designed to be used to pre-process tibble objects mapped to the label aesthetic before adding them to a plot with geom_table.
