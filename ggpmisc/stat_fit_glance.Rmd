@@ -1,4 +1,17 @@
-stat_fit_glance One row summary data frame for a fitted model
+
+---
+title: "``ggpmisc::stat_fit_glance``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpmisc)
+```
+
+
+ One row summary data frame for a fitted model
 
 ### Description
 
