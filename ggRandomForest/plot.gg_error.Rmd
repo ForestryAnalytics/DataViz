@@ -1,5 +1,16 @@
+---
+title: "``ggRandomForest::plot.gg_error``"
+output: html_document
+---
 
-plot.gg_error Plot a gg_error object
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
+
+
+ Plot a gg_error object
 #### Description 
 
 A plot of the cumulative OOB error rates of the random forest as a function of number of trees.
