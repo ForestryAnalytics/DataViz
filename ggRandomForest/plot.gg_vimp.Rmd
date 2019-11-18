@@ -1,3 +1,13 @@
+---
+title: "``ggRandomForest::plot.gg_vimp``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
 
 plot.gg_vimp Plot a gg_vimp object, extracted variable importance of a rfsrc object
 #### Description 
@@ -10,6 +20,7 @@ Plot a gg_vimp object, extracted variable importance of a rfsrc object
 plot(x, relative, lbls, ...)
 
 </code></pre>
+
 #### Arguments
 * x gg_vimp object created from a rfsrc object relative should we plot vimp or relative vimp. Defaults to vimp.
 * lbls A vector of alternative variable labels. Item names should be the same as the variable names.
@@ -41,7 +52,7 @@ data(rfsrc_airq, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_airq)
 plot(gg_dta)
 ## -------- Boston data
-print.gg_minimal_depth 59
+
 data(rfsrc_Boston, package="ggRandomForests")
 gg_dta <- gg_vimp(rfsrc_Boston)
 plot(gg_dta)
