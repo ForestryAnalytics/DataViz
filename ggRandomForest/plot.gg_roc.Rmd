@@ -1,4 +1,13 @@
+---
+title: "``ggRandomForest::gg_vimp``"
+output: html_document
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
 plot.gg_roc ROC plot generic function for a gg_roc object.
 #### Description 
 
@@ -26,7 +35,6 @@ See Also
 gg_roc rfsrc
 #### Examples 
 ```{r} 
-
 ## Not run:
 ## ------------------------------------------------------------
 ## classification example
@@ -47,4 +55,59 @@ plot.gg_roc(gg_dta)
 # by calling the plot function on the forest object.
 plot.gg_roc(rfsrc_iris)
 ## End(Not run)
+```
+
+
+```{r}
+## ------------------------------------------------------------
+## regression example
+## ------------------------------------------------------------
+
+## -------- air quality data
+# rfsrc_airq <- rfsrc(Ozone ~ ., airquality)
+data(rfsrc_airq, package="ggRandomForests")
+gg_dta <- gg_vimp(rfsrc_airq)
+plot(gg_dta)
+## End(Not run)
+```
+
+
+```{r}
+## -------- Boston data
+data(rfsrc_Boston, package="ggRandomForests")
+gg_dta <- gg_vimp(rfsrc_Boston)
+plot(gg_dta)
+## End(Not run)
+```
+
+
+```{r}
+## -------- mtcars data
+data(rfsrc_mtcars, package="ggRandomForests")
+gg_dta <- gg_vimp(rfsrc_mtcars)
+plot(gg_dta)
+```
+
+
+```{r}
+## ------------------------------------------------------------
+## survival example
+## ------------------------------------------------------------
+## Not run:
+## -------- veteran data
+data(rfsrc_veteran, package="ggRandomForests")
+gg_dta <- gg_vimp(rfsrc_veteran)
+plot(gg_dta)
+## End(Not run)
+```
+
+
+```{r}
+## -------- pbc data
+data(rfsrc_pbc, package="ggRandomForests")
+gg_dta <- gg_vimp(rfsrc_pbc)
+plot(gg_dta)
+# Restrict to only the top 10.
+gg_dta <- gg_vimp(rfsrc_pbc, nvar=10)
+plot(gg_dta)
 ```
