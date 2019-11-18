@@ -1,4 +1,14 @@
-gg_minimal_vimp Minimal depth vs VIMP camparison by variable rankings.
+---
+title: "``ggRandomForest::gg_minimal_vimp``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
+ Minimal depth vs VIMP camparison by variable rankings.
 #### Description 
 
 Minimal depth vs VIMP camparison by variable rankings.
@@ -38,8 +48,9 @@ data(varsel_iris, package="ggRandomForests")
 gg_dta<- gg_minimal_vimp(varsel_iris)
 # Plot the gg_minimal_depth object
 plot(gg_dta)
-16 gg_minimal_vimp
-## End(Not run)
+```
+
+```{r}
 ## ------------------------------------------------------------
 ## Regression example
 ## ------------------------------------------------------------
@@ -62,7 +73,9 @@ gg_dta<- gg_minimal_vimp(varsel_Boston)
 # Plot the gg_minimal_vimp object
 plot(gg_dta)
 ## End(Not run)
-## Not run:
+```
+
+```{r}
 ## -------- mtcars data
 data(varsel_mtcars, package="ggRandomForests")
 # Get a data.frame containing error rates
@@ -73,7 +86,9 @@ plot(gg_dta)
 ## ------------------------------------------------------------
 ## Survival example
 ## ------------------------------------------------------------
-## Not run:
+```
+
+```{r}
 ## -------- veteran data
 ## randomized trial of two treatment regimens for lung cancer
 # data(veteran, package = "randomForestSRC")
@@ -81,7 +96,7 @@ plot(gg_dta)
 # varsel_veteran <- randomForestSRC::var.select(rfsrc_veteran)
 # Load a cached randomForestSRC object
 data(varsel_veteran, package="ggRandomForests")
-gg_partial 17
+
 gg_dta <- gg_minimal_vimp(varsel_veteran)
 plot(gg_dta)
 ## End(Not run)
