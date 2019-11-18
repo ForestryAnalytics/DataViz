@@ -1,5 +1,13 @@
+---
+title: "``ggRandomForest::kaplan``"
+output: html_document
+---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
 kaplan nonparametric kaplan-meier estimates
 
 
@@ -28,11 +36,9 @@ See Also
 gg_survival nelson plot.gg_survival
 #### Examples 
 ```{r} 
-
 ## Not run:
 # These get run through the gg_survival #### Examples 
-```{r} 
-.
+
 data(pbc, package="randomForestSRC")
 pbc$time <- pbc$days/364.25
 # This is the same as gg_survival
@@ -46,4 +52,3 @@ data=pbc, by="treatment")
 plot(gg_dta, error="none")
 plot(gg_dta)
 ```
-
