@@ -1,3 +1,14 @@
+---
+title: "``ggRandomForest::quantile_pts``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
+
 
 quantile_pts Find points evenly distributed along the vectors values.
 #### Description 
