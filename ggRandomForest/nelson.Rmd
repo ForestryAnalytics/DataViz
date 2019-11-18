@@ -1,3 +1,13 @@
+---
+title: "``ggRandomForest::nelson``"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggRandomForests)
+library(ggplot2)
+```
 
 nelson nonparametric Nelson-Aalen estimates
 #### Description 
